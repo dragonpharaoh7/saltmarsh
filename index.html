@@ -10,44 +10,24 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --ink:       #1a1208;
-    --ink-mid:   #3d2e18;
-    --ink-light: #7a6045;
     --parchment: #f5ead6;
     --parchment-dark: #e8d5b5;
     --parchment-deep: #d4b98a;
-    --sea:       #1e3d4f;
-    --sea-mid:   #2e5f78;
-    --sea-light: #4a8fa8;
-    --sea-pale:  #d4eaf2;
-    --gold:      #c4860a;
-    --gold-light:#f0c060;
-    --red:       #8b2020;
-
-    --cat-tavern:   #3d1a08;
-    --cat-civic:    #1a2a1a;
-    --cat-trade:    #0a1e30;
-    --cat-docks:    #1e1a08;
-    --cat-landmark: #1a0a2e;
-
-    --cat-tavern-bg:   #f5e6d8;
-    --cat-civic-bg:    #ddeedd;
-    --cat-trade-bg:    #d8e8f5;
-    --cat-docks-bg:    #f5f0d8;
-    --cat-landmark-bg: #ead8f5;
+    --gold: #c4860a;
+    --gold-light: #f0c060;
+    --bg: #0d1c26;
   }
 
   html { scroll-behavior: smooth; }
 
   body {
     font-family: 'Crimson Pro', Georgia, serif;
-    background-color: #0d1c26;
+    background-color: var(--bg);
     color: var(--parchment);
     min-height: 100vh;
     overflow-x: hidden;
   }
 
-  /* ── Background texture ── */
   body::before {
     content: '';
     position: fixed;
@@ -60,49 +40,38 @@
   }
 
   .wave-bg {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    opacity: 0.04;
-    background-image: repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 20px,
-      rgba(74,143,168,0.5) 20px,
-      rgba(74,143,168,0.5) 21px
-    );
-    pointer-events: none;
+    position: fixed; inset: 0; z-index: 0; opacity: 0.04; pointer-events: none;
+    background-image: repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(74,143,168,0.5) 20px, rgba(74,143,168,0.5) 21px);
   }
 
+  #view-list, #view-detail { position: relative; z-index: 10; }
+  #view-detail { display: none; }
+
   /* ── Header ── */
-  header {
-    position: relative;
-    z-index: 10;
+  .site-header {
     text-align: center;
     padding: 4rem 2rem 3rem;
     border-bottom: 1px solid rgba(196,134,10,0.3);
   }
 
+  .site-header.compact {
+    padding: 1.75rem 2rem 1.5rem;
+    cursor: pointer;
+  }
+
+  .site-header.compact:hover h1 { opacity: 0.8; }
+
   .header-ornament {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+    display: flex; align-items: center; justify-content: center;
+    gap: 1.5rem; margin-bottom: 1.25rem;
   }
 
   .ornament-line {
-    flex: 1;
-    max-width: 200px;
-    height: 1px;
+    flex: 1; max-width: 200px; height: 1px;
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
   }
 
-  .anchor-icon {
-    font-size: 1.5rem;
-    color: var(--gold);
-    opacity: 0.8;
-  }
+  .anchor-icon { font-size: 1.3rem; color: var(--gold); opacity: 0.8; }
 
   h1 {
     font-family: 'Cinzel', serif;
@@ -112,351 +81,303 @@
     color: var(--gold-light);
     text-shadow: 0 0 40px rgba(196,134,10,0.4), 0 2px 4px rgba(0,0,0,0.6);
     line-height: 1.1;
+    transition: opacity 0.2s;
   }
+
+  .compact h1 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
 
   .subtitle {
-    font-family: 'Crimson Pro', serif;
-    font-size: 1.1rem;
-    font-style: italic;
-    color: var(--parchment-deep);
-    margin-top: 0.75rem;
-    letter-spacing: 0.03em;
+    font-size: 1.05rem; font-style: italic;
+    color: var(--parchment-deep); margin-top: 0.6rem; letter-spacing: 0.03em;
   }
+
+  .compact .subtitle { font-size: 0.82rem; margin-top: 0.25rem; }
 
   .town-desc {
-    max-width: 560px;
-    margin: 1.5rem auto 0;
-    font-size: 1rem;
-    color: rgba(245,234,214,0.7);
-    line-height: 1.8;
-    font-style: italic;
+    max-width: 560px; margin: 1.5rem auto 0;
+    font-size: 1rem; color: rgba(245,234,214,0.65);
+    line-height: 1.8; font-style: italic;
   }
 
-  /* ── Controls ── */
+  /* ── List controls ── */
   .controls {
-    position: relative;
-    z-index: 10;
-    max-width: 1200px;
-    margin: 2.5rem auto 0;
-    padding: 0 2rem;
+    max-width: 1200px; margin: 2.5rem auto 0; padding: 0 2rem;
   }
 
-  .search-wrap {
-    position: relative;
-    margin-bottom: 1.25rem;
-  }
+  .search-wrap { position: relative; margin-bottom: 1.25rem; }
 
   .search-icon {
-    position: absolute;
-    left: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--ink-light);
-    font-size: 1rem;
-    pointer-events: none;
+    position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+    color: rgba(122,96,69,0.7); font-size: 1rem; pointer-events: none;
   }
 
   #search {
-    width: 100%;
-    padding: 0.75rem 1rem 0.75rem 2.75rem;
-    background: rgba(245,234,214,0.92);
-    border: 1px solid var(--parchment-deep);
-    border-radius: 4px;
-    font-family: 'Crimson Pro', serif;
-    font-size: 1.05rem;
-    color: var(--ink);
-    outline: none;
-    transition: box-shadow 0.2s;
+    width: 100%; padding: 0.75rem 1rem 0.75rem 2.75rem;
+    background: rgba(245,234,214,0.92); border: 1px solid var(--parchment-deep);
+    border-radius: 4px; font-family: 'Crimson Pro', serif;
+    font-size: 1.05rem; color: #1a1208; outline: none; transition: box-shadow 0.2s;
   }
 
-  #search::placeholder { color: var(--ink-light); font-style: italic; }
+  #search::placeholder { color: rgba(122,96,69,0.8); font-style: italic; }
   #search:focus { box-shadow: 0 0 0 2px rgba(196,134,10,0.5); }
 
-  .filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 1rem;
-  }
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; }
 
   .filter-btn {
-    font-family: 'Cinzel', serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    padding: 5px 14px;
-    border-radius: 2px;
-    border: 1px solid rgba(196,134,10,0.4);
-    background: transparent;
-    color: var(--parchment-deep);
-    cursor: pointer;
-    transition: all 0.2s;
+    font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.08em;
+    padding: 5px 14px; border-radius: 2px; border: 1px solid rgba(196,134,10,0.4);
+    background: transparent; color: var(--parchment-deep); cursor: pointer; transition: all 0.2s;
   }
 
-  .filter-btn:hover {
-    background: rgba(196,134,10,0.15);
-    border-color: var(--gold);
-    color: var(--gold-light);
-  }
+  .filter-btn:hover { background: rgba(196,134,10,0.15); border-color: var(--gold); color: var(--gold-light); }
+  .filter-btn.active { background: rgba(196,134,10,0.25); border-color: var(--gold); color: var(--gold-light); }
 
-  .filter-btn.active {
-    background: rgba(196,134,10,0.25);
-    border-color: var(--gold);
-    color: var(--gold-light);
-  }
-
-  .results-count {
-    font-size: 0.85rem;
-    font-style: italic;
-    color: rgba(245,234,214,0.4);
-    margin-bottom: 1.5rem;
-  }
-
-  /* ── Grid ── */
-  .grid {
-    position: relative;
-    z-index: 10;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem 4rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 16px;
-  }
+  .results-count { font-size: 0.85rem; font-style: italic; color: rgba(245,234,214,0.35); margin-bottom: 1.5rem; }
 
   /* ── Cards ── */
+  .grid {
+    max-width: 1200px; margin: 0 auto; padding: 0 2rem 4rem;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 14px;
+  }
+
   .card {
-    background: rgba(245,234,214,0.06);
-    border: 1px solid rgba(196,134,10,0.2);
-    border-radius: 4px;
-    overflow: hidden;
-    cursor: pointer;
+    background: rgba(245,234,214,0.05); border: 1px solid rgba(196,134,10,0.18);
+    border-radius: 4px; cursor: pointer;
     transition: border-color 0.2s, background 0.2s, transform 0.15s;
     animation: fadeUp 0.4s ease both;
   }
 
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(12px); }
+    from { opacity: 0; transform: translateY(10px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  .card:hover {
-    border-color: rgba(196,134,10,0.5);
-    background: rgba(245,234,214,0.09);
-    transform: translateY(-2px);
-  }
+  .card:hover { border-color: rgba(196,134,10,0.55); background: rgba(245,234,214,0.09); transform: translateY(-2px); }
 
-  .card.expanded {
-    border-color: rgba(196,134,10,0.6);
-    background: rgba(245,234,214,0.1);
-  }
-
-  .card-top {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 1rem 1.25rem;
-  }
+  .card-top { display: flex; align-items: flex-start; gap: 12px; padding: 1rem 1.25rem; }
 
   .num {
-    font-family: 'Cinzel', serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-    min-width: 28px;
-    height: 28px;
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    margin-top: 2px;
-    border: 1px solid;
+    font-family: 'Cinzel', serif; font-size: 0.75rem; font-weight: 600;
+    min-width: 28px; height: 28px; border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 2px; border: 1px solid;
   }
 
   .card-name {
-    font-family: 'Cinzel', serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--gold-light);
-    line-height: 1.3;
-    letter-spacing: 0.03em;
+    font-family: 'Cinzel', serif; font-size: 0.95rem; font-weight: 600;
+    color: var(--gold-light); line-height: 1.3; letter-spacing: 0.03em;
   }
 
-  .card-meta {
-    font-size: 0.85rem;
-    color: rgba(245,234,214,0.5);
-    font-style: italic;
-    margin-top: 3px;
-    line-height: 1.4;
-  }
+  .card-meta { font-size: 0.85rem; color: rgba(245,234,214,0.45); font-style: italic; margin-top: 3px; }
 
   .cat-tag {
-    font-family: 'Cinzel', serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.1em;
-    padding: 2px 8px;
-    border-radius: 2px;
-    margin-top: 6px;
-    display: inline-block;
-    border: 1px solid;
-    text-transform: uppercase;
+    font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.1em;
+    padding: 2px 8px; border-radius: 2px; margin-top: 6px;
+    display: inline-block; border: 1px solid; text-transform: uppercase;
   }
 
-  .chevron {
-    margin-left: auto;
-    color: rgba(245,234,214,0.3);
-    font-size: 0.8rem;
-    transition: transform 0.25s;
-    flex-shrink: 0;
-    margin-top: 4px;
+  .card-arrow {
+    margin-left: auto; color: rgba(245,234,214,0.2); font-size: 0.9rem;
+    flex-shrink: 0; margin-top: 4px; transition: color 0.2s, transform 0.2s;
   }
 
-  .card.expanded .chevron { transform: rotate(180deg); }
+  .card:hover .card-arrow { color: var(--gold); transform: translateX(3px); }
 
-  /* ── Card body ── */
-  .card-body {
-    display: none;
-    padding: 0 1.25rem 1.25rem;
-    border-top: 1px solid rgba(196,134,10,0.15);
+  .has-notes-dot {
+    display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+    background: #4a8fa8; margin-left: 7px; vertical-align: middle; opacity: 0.75;
   }
 
-  .card.expanded .card-body { display: block; }
-
-  .card-desc {
-    font-size: 0.975rem;
-    line-height: 1.75;
-    color: rgba(245,234,214,0.8);
-    padding-top: 0.875rem;
-  }
-
-  .npcs-section {
-    margin-top: 0.875rem;
-    padding-top: 0.75rem;
-    border-top: 1px solid rgba(196,134,10,0.12);
-  }
-
-  .npcs-label {
-    font-family: 'Cinzel', serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
-    color: var(--gold);
-    opacity: 0.7;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-
-  .npc-chip {
-    display: inline-block;
-    font-size: 0.82rem;
-    padding: 2px 10px;
-    margin: 2px 3px 2px 0;
-    background: rgba(196,134,10,0.12);
-    border: 1px solid rgba(196,134,10,0.3);
-    border-radius: 2px;
-    color: var(--parchment-deep);
-    font-style: italic;
-  }
-
-  /* ── Notes (session content from Discord) ── */
-  .notes-section {
-    margin-top: 0.875rem;
-    padding-top: 0.75rem;
-    border-top: 1px solid rgba(196,134,10,0.12);
-  }
-
-  .notes-label {
-    font-family: 'Cinzel', serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
-    color: #8ab4c8;
-    opacity: 0.9;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-
-  .notes-text {
-    font-size: 0.93rem;
-    line-height: 1.78;
-    color: rgba(212,234,242,0.82);
-    white-space: pre-line;
-  }
-
-  /* ── Tags ── */
-  .tags-row {
-    margin-top: 8px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-  }
+  .tags-row { margin-top: 7px; display: flex; flex-wrap: wrap; gap: 5px; }
 
   .tag-chip {
-    font-size: 0.75rem;
-    padding: 2px 8px;
-    border-radius: 2px;
-    background: rgba(138,180,200,0.15);
-    border: 1px solid rgba(138,180,200,0.3);
-    color: #8ab4c8;
-    font-family: 'Cinzel', serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    background: rgba(138,180,200,0.12); border: 1px solid rgba(138,180,200,0.28);
+    color: #8ab4c8; font-family: 'Cinzel', serif; font-size: 0.6rem;
+    letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px;
   }
 
   /* ── Category colors ── */
-  .cat-tavern   { color: #e8a060; border-color: rgba(232,160,96,0.4); background: rgba(232,160,96,0.1); }
+  .cat-tavern   { color: #e8a060; border-color: rgba(232,160,96,0.4);  background: rgba(232,160,96,0.1); }
   .cat-civic    { color: #90c890; border-color: rgba(144,200,144,0.4); background: rgba(144,200,144,0.1); }
   .cat-trade    { color: #7ab4e0; border-color: rgba(122,180,224,0.4); background: rgba(122,180,224,0.1); }
   .cat-docks    { color: #e8d060; border-color: rgba(232,208,96,0.4);  background: rgba(232,208,96,0.1); }
   .cat-landmark { color: #c090e0; border-color: rgba(192,144,224,0.4); background: rgba(192,144,224,0.1); }
 
-  /* ── Footer ── */
-  footer {
-    position: relative;
-    z-index: 10;
-    text-align: center;
-    padding: 2rem;
-    border-top: 1px solid rgba(196,134,10,0.2);
-    font-size: 0.8rem;
-    font-style: italic;
-    color: rgba(245,234,214,0.25);
+  /* ══════════════════════
+     DETAIL PAGE
+  ══════════════════════ */
+
+  .detail-nav {
+    max-width: 860px; margin: 0 auto; padding: 1.5rem 2rem 0;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
   }
 
-  /* ── Responsive ── */
+  .back-btn {
+    font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.1em;
+    color: var(--parchment-deep); border: 1px solid rgba(196,134,10,0.35);
+    background: transparent; padding: 6px 14px; border-radius: 2px;
+    cursor: pointer; transition: all 0.2s;
+  }
+
+  .back-btn:hover { background: rgba(196,134,10,0.15); border-color: var(--gold); color: var(--gold-light); }
+
+  .prev-next { display: flex; gap: 8px; }
+
+  .pn-btn {
+    font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.08em;
+    color: rgba(245,234,214,0.38); border: 1px solid rgba(196,134,10,0.18);
+    background: transparent; padding: 6px 12px; border-radius: 2px;
+    cursor: pointer; transition: all 0.2s;
+  }
+
+  .pn-btn:hover { color: var(--gold-light); border-color: rgba(196,134,10,0.5); }
+  .pn-btn.disabled { opacity: 0.2; pointer-events: none; }
+
+  .detail-body { max-width: 860px; margin: 0 auto; padding: 2.5rem 2rem 5rem; }
+
+  .detail-hero {
+    display: flex; align-items: flex-start; gap: 1.25rem;
+    margin-bottom: 2.25rem; padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(196,134,10,0.18);
+  }
+
+  .detail-num {
+    font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 600;
+    width: 48px; height: 48px; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; border: 1px solid; margin-top: 4px;
+  }
+
+  .detail-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.6rem, 4vw, 2.3rem);
+    font-weight: 600; color: var(--gold-light);
+    letter-spacing: 0.04em; line-height: 1.2;
+    text-shadow: 0 0 30px rgba(196,134,10,0.25);
+  }
+
+  .detail-meta { font-size: 1rem; color: rgba(245,234,214,0.48); font-style: italic; margin-top: 6px; }
+  .detail-tags { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .detail-section { margin-bottom: 2.25rem; animation: fadeUp 0.3s ease both; }
+
+  .section-label {
+    font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.15em;
+    text-transform: uppercase; margin-bottom: 0.85rem;
+    padding-bottom: 0.5rem; border-bottom: 1px solid rgba(196,134,10,0.18);
+  }
+
+  .section-label.gold { color: rgba(196,134,10,0.75); }
+  .section-label.blue { color: rgba(138,180,200,0.75); }
+
+  .detail-desc { font-size: 1.1rem; line-height: 1.88; color: rgba(245,234,214,0.85); }
+
+  .npc-card {
+    display: inline-block; font-size: 0.95rem; padding: 4px 14px;
+    margin: 3px 4px 3px 0; background: rgba(196,134,10,0.1);
+    border: 1px solid rgba(196,134,10,0.28); border-radius: 2px;
+    color: var(--parchment-deep); font-style: italic;
+  }
+
+  /* ── Notes rendering ── */
+  .notes-content { font-size: 1.02rem; line-height: 1.85; color: rgba(212,234,242,0.8); }
+
+  .notes-content .note-header {
+    display: block; font-family: 'Cinzel', serif; font-size: 0.67rem;
+    letter-spacing: 0.15em; color: rgba(138,180,200,0.85); text-transform: uppercase;
+    margin-top: 1.75rem; margin-bottom: 0.65rem;
+    padding-bottom: 0.4rem; border-bottom: 1px solid rgba(138,180,200,0.15);
+  }
+
+  .notes-content .note-header:first-child { margin-top: 0; }
+
+  .notes-content p { margin-bottom: 0.75rem; }
+
+  .notes-content p:last-child { margin-bottom: 0; }
+
+  .notes-content .note-item {
+    padding-left: 1.2rem; position: relative; margin-bottom: 0.35rem;
+    color: rgba(212,234,242,0.72);
+  }
+
+  .notes-content .note-item::before { content: '·'; position: absolute; left: 0; color: rgba(138,180,200,0.45); }
+
+  .price-block { margin-bottom: 0.5rem; }
+
+  .note-price-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 5px 0; border-bottom: 1px solid rgba(196,134,10,0.07);
+    gap: 1rem; font-size: 0.97rem;
+  }
+
+  .note-price-row:last-child { border-bottom: none; }
+  .note-price-name { color: rgba(245,234,214,0.8); }
+  .note-price-val  { color: var(--gold-light); font-family: 'Cinzel', serif; font-size: 0.84rem; white-space: nowrap; }
+
+  /* ── Footer ── */
+  footer {
+    position: relative; z-index: 10; text-align: center; padding: 2rem;
+    border-top: 1px solid rgba(196,134,10,0.18);
+    font-size: 0.8rem; font-style: italic; color: rgba(245,234,214,0.22);
+  }
+
   @media (max-width: 600px) {
-    header { padding: 2.5rem 1.25rem 2rem; }
-    .controls, .grid { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .site-header { padding: 2.5rem 1.25rem 2rem; }
+    .controls, .grid, .detail-nav, .detail-body { padding-left: 1.25rem; padding-right: 1.25rem; }
     .grid { grid-template-columns: 1fr; }
+    .detail-hero { flex-direction: column; gap: 0.75rem; }
+    .detail-num { width: 36px; height: 36px; font-size: 0.85rem; }
   }
 </style>
 </head>
 <body>
-
 <div class="wave-bg"></div>
 
-<header>
-  <div class="header-ornament">
-    <div class="ornament-line"></div>
-    <span class="anchor-icon">⚓</span>
-    <div class="ornament-line"></div>
+<!-- LIST VIEW -->
+<div id="view-list">
+  <header class="site-header">
+    <div class="header-ornament">
+      <div class="ornament-line"></div>
+      <span class="anchor-icon">⚓</span>
+      <div class="ornament-line"></div>
+    </div>
+    <h1 id="town-name">Saltmarsh</h1>
+    <p class="subtitle" id="town-subtitle">A coastal town on the Azure Sea</p>
+    <p class="town-desc" id="town-desc"></p>
+  </header>
+  <div class="controls">
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input type="text" id="search" placeholder="Search locations, NPCs, notes…" oninput="renderList()" />
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="results-count" id="count"></div>
   </div>
-  <h1 id="town-name">Saltmarsh</h1>
-  <p class="subtitle" id="town-subtitle">A coastal town on the Azure Sea</p>
-  <p class="town-desc" id="town-desc"></p>
-</header>
-
-<div class="controls">
-  <div class="search-wrap">
-    <span class="search-icon">⌕</span>
-    <input type="text" id="search" placeholder="Search locations, NPCs, session notes…" oninput="render()" />
-  </div>
-  <div class="filters" id="filters"></div>
-  <div class="results-count" id="count"></div>
+  <div class="grid" id="grid"></div>
 </div>
 
-<div class="grid" id="grid"></div>
+<!-- DETAIL VIEW -->
+<div id="view-detail">
+  <header class="site-header compact" onclick="goHome()">
+    <div class="header-ornament">
+      <div class="ornament-line"></div>
+      <span class="anchor-icon">⚓</span>
+      <div class="ornament-line"></div>
+    </div>
+    <h1 id="dh-name">Saltmarsh</h1>
+    <p class="subtitle" id="dh-sub">A coastal town on the Azure Sea</p>
+  </header>
+  <div class="detail-nav">
+    <button class="back-btn" onclick="goHome()">← All Locations</button>
+    <div class="prev-next">
+      <button class="pn-btn" id="btn-prev" onclick="navLoc(-1)">← Prev</button>
+      <button class="pn-btn" id="btn-next" onclick="navLoc(1)">Next →</button>
+    </div>
+  </div>
+  <div class="detail-body" id="detail-body"></div>
+</div>
 
-<footer>
-  <p>Saltmarsh · Azure Sea · Updated from session notes</p>
-</footer>
+<footer><p>Saltmarsh · Azure Sea · Updated from session notes</p></footer>
 
 <script>
 const CATEGORIES = [
@@ -467,11 +388,7 @@ const CATEGORIES = [
   { id: 'docks',    label: 'Docks & Harbor' },
   { id: 'landmark', label: 'Landmarks' },
 ];
-
-const CAT_LABELS = {
-  tavern: 'Tavern & Inn', civic: 'Civic', trade: 'Trade & Guild',
-  docks: 'Docks', landmark: 'Landmark'
-};
+const CAT_LABELS = { tavern:'Tavern & Inn', civic:'Civic', trade:'Trade & Guild', docks:'Docks', landmark:'Landmark' };
 
 let data = null;
 let activeFilter = 'all';
@@ -480,18 +397,43 @@ async function init() {
   try {
     const res = await fetch('data.json?v=' + Date.now());
     data = await res.json();
-  } catch (e) {
-    document.getElementById('grid').innerHTML = '<p style="color:rgba(245,234,214,0.5);padding:2rem;font-style:italic">Could not load data.json. Make sure it is in the same folder as index.html.</p>';
+  } catch(e) {
+    document.getElementById('grid').innerHTML = '<p style="padding:2rem;font-style:italic;color:rgba(245,234,214,0.4)">Could not load data.json — make sure it is in the same folder as index.html.</p>';
     return;
   }
 
-  document.getElementById('town-name').textContent = data.town.name;
-  document.getElementById('town-subtitle').textContent = data.town.subtitle;
+  ['town-name','dh-name'].forEach(id => document.getElementById(id).textContent = data.town.name);
+  ['town-subtitle','dh-sub'].forEach(id => document.getElementById(id).textContent = data.town.subtitle);
   document.getElementById('town-desc').textContent = data.town.description;
   document.title = data.town.name + ' — Town Guide';
 
   buildFilters();
-  render();
+  route();
+  window.addEventListener('hashchange', route);
+}
+
+function route() {
+  const hash = window.location.hash.replace('#','').trim();
+  if (!hash) { showList(); return; }
+  const id = parseInt(hash);
+  const loc = isNaN(id) ? data.locations.find(l => toSlug(l.name) === hash) : data.locations.find(l => l.id === id);
+  loc ? showDetail(loc) : showList();
+}
+
+function toSlug(n) { return n.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''); }
+function goHome() { window.location.hash = ''; window.scrollTo(0,0); }
+function goTo(loc) { window.location.hash = loc.id; window.scrollTo(0,0); }
+function navLoc(dir) {
+  const id = parseInt(window.location.hash.replace('#',''));
+  const idx = data.locations.findIndex(l => l.id === id);
+  const next = data.locations[idx + dir];
+  if (next) goTo(next);
+}
+
+function showList() {
+  document.getElementById('view-list').style.display = '';
+  document.getElementById('view-detail').style.display = 'none';
+  document.title = data.town.name + ' — Town Guide';
 }
 
 function buildFilters() {
@@ -504,66 +446,127 @@ function buildFilters() {
       activeFilter = cat.id;
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      render();
+      renderList();
     };
     wrap.appendChild(btn);
   });
 }
 
-function render() {
+function renderList() {
   const q = (document.getElementById('search').value || '').toLowerCase();
   const grid = document.getElementById('grid');
   grid.innerHTML = '';
   let shown = 0;
 
   data.locations.forEach((loc, i) => {
-    const matchFilter = activeFilter === 'all' || loc.category === activeFilter;
-    const searchStr = [loc.name, loc.meta, loc.description, loc.notes, ...loc.npcs, ...(loc.tags || [])].join(' ').toLowerCase();
-    const matchSearch = !q || searchStr.includes(q);
-    if (!matchFilter || !matchSearch) return;
+    if (activeFilter !== 'all' && loc.category !== activeFilter) return;
+    const str = [loc.name, loc.meta, loc.description, loc.notes || '', ...(loc.npcs||[]), ...(loc.tags||[])].join(' ').toLowerCase();
+    if (q && !str.includes(q)) return;
     shown++;
 
     const card = document.createElement('div');
     card.className = 'card';
-    card.style.animationDelay = (shown * 0.04) + 's';
-
-    const hasNpcs = loc.npcs && loc.npcs.length > 0;
-    const hasNotes = loc.notes && loc.notes.trim().length > 0;
+    card.style.animationDelay = (shown * 0.03) + 's';
     const hasTags = loc.tags && loc.tags.length > 0;
-
+    const hasNotes = loc.notes && loc.notes.trim().length > 0;
     card.innerHTML = `
       <div class="card-top">
         <div class="num cat-${loc.category}">${loc.id}</div>
         <div style="flex:1;min-width:0">
-          <div class="card-name">${loc.name}</div>
+          <div class="card-name">${loc.name}${hasNotes ? '<span class="has-notes-dot"></span>' : ''}</div>
           <div class="card-meta">${loc.meta}</div>
-          <span class="cat-tag cat-${loc.category}">${CAT_LABELS[loc.category] || loc.category}</span>
-          ${hasTags ? `<div class="tags-row">${loc.tags.map(t => `<span class="tag-chip">${t}</span>`).join('')}</div>` : ''}
+          <span class="cat-tag cat-${loc.category}">${CAT_LABELS[loc.category]||loc.category}</span>
+          ${hasTags ? `<div class="tags-row">${loc.tags.map(t=>`<span class="tag-chip">${t}</span>`).join('')}</div>` : ''}
         </div>
-        <span class="chevron">▾</span>
-      </div>
-      <div class="card-body">
-        <p class="card-desc">${loc.description}</p>
-        ${hasNpcs ? `
-          <div class="npcs-section">
-            <div class="npcs-label">Notable People</div>
-            ${loc.npcs.map(n => `<span class="npc-chip">${n}</span>`).join('')}
-          </div>` : ''}
-        ${hasNotes ? `
-          <div class="notes-section">
-            <div class="notes-label">Session Notes</div>
-            <div class="notes-text">${loc.notes}</div>
-          </div>` : ''}
+        <span class="card-arrow">→</span>
       </div>`;
-
-    card.querySelector('.card-top').onclick = () => card.classList.toggle('expanded');
+    card.onclick = () => goTo(loc);
     grid.appendChild(card);
   });
 
   document.getElementById('count').textContent =
-    shown === data.locations.length
-      ? `${shown} locations`
-      : `${shown} of ${data.locations.length} locations`;
+    shown === data.locations.length ? `${shown} locations` : `${shown} of ${data.locations.length} locations`;
+}
+
+function showDetail(loc) {
+  document.getElementById('view-list').style.display = 'none';
+  document.getElementById('view-detail').style.display = '';
+  document.title = loc.name + ' — ' + data.town.name;
+
+  const idx = data.locations.findIndex(l => l.id === loc.id);
+  document.getElementById('btn-prev').className = 'pn-btn' + (idx === 0 ? ' disabled' : '');
+  document.getElementById('btn-next').className = 'pn-btn' + (idx === data.locations.length - 1 ? ' disabled' : '');
+
+  const body = document.getElementById('detail-body');
+  body.innerHTML = '';
+
+  /* Hero */
+  const hero = el('div', 'detail-hero');
+  hero.innerHTML = `
+    <div class="detail-num cat-${loc.category}">${loc.id}</div>
+    <div>
+      <div class="detail-title">${loc.name}</div>
+      <div class="detail-meta">${loc.meta}</div>
+      <span class="cat-tag cat-${loc.category}" style="margin-top:10px;display:inline-block">${CAT_LABELS[loc.category]||loc.category}</span>
+      ${loc.tags && loc.tags.length ? `<div class="detail-tags">${loc.tags.map(t=>`<span class="tag-chip">${t}</span>`).join('')}</div>` : ''}
+    </div>`;
+  body.appendChild(hero);
+
+  section(body, 'Overview', 'gold', `<p class="detail-desc">${loc.description}</p>`);
+
+  if (loc.npcs && loc.npcs.length) {
+    section(body, 'Notable People', 'gold', loc.npcs.map(n=>`<span class="npc-card">${n}</span>`).join(''));
+  }
+
+  if (loc.notes && loc.notes.trim()) {
+    section(body, 'Location Notes', 'blue', parseNotes(loc.notes));
+  }
+}
+
+function el(tag, cls) { const e = document.createElement(tag); e.className = cls; return e; }
+
+function section(parent, label, color, innerHTML) {
+  const div = el('div', 'detail-section');
+  div.innerHTML = `<div class="section-label ${color}">${label}</div><div>${innerHTML}</div>`;
+  parent.appendChild(div);
+}
+
+function parseNotes(raw) {
+  const lines = raw.split('\n');
+  let html = '<div class="notes-content">';
+  let inPriceBlock = false;
+
+  lines.forEach(line => {
+    const t = line.trim();
+    if (!t) {
+      if (inPriceBlock) { html += '</div>'; inPriceBlock = false; }
+      return;
+    }
+    /* Section header: ── LABEL ── */
+    if (/^──.+──$/.test(t)) {
+      if (inPriceBlock) { html += '</div>'; inPriceBlock = false; }
+      html += `<span class="note-header">${t.replace(/^──\s*/,'').replace(/\s*──$/,'')}</span>`;
+      return;
+    }
+    /* Price row: Name — X gp */
+    const dashIdx = t.indexOf(' — ');
+    if (dashIdx > 0 && /[\d+]/.test(t.slice(dashIdx))) {
+      if (!inPriceBlock) { html += '<div class="price-block">'; inPriceBlock = true; }
+      html += `<div class="note-price-row"><span class="note-price-name">${t.slice(0,dashIdx)}</span><span class="note-price-val">${t.slice(dashIdx+3)}</span></div>`;
+      return;
+    }
+    if (inPriceBlock) { html += '</div>'; inPriceBlock = false; }
+    /* Indented sub-item */
+    if (/^\s{2,}/.test(line)) {
+      html += `<div class="note-item">${t}</div>`;
+      return;
+    }
+    html += `<p>${t}</p>`;
+  });
+
+  if (inPriceBlock) html += '</div>';
+  html += '</div>';
+  return html;
 }
 
 init();
