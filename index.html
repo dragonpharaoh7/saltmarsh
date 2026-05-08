@@ -431,7 +431,7 @@ function navLoc(dir) {
 }
 
 function showList() {
-  document.getElementById('view-list').style.display = '';
+  document.getElementById('view-list').style.display = 'block';
   document.getElementById('view-detail').style.display = 'none';
   document.title = data.town.name + ' — Town Guide';
 }
@@ -490,7 +490,7 @@ function renderList() {
 
 function showDetail(loc) {
   document.getElementById('view-list').style.display = 'none';
-  document.getElementById('view-detail').style.display = '';
+  document.getElementById('view-detail').style.display = 'block';
   document.title = loc.name + ' — ' + data.town.name;
 
   const idx = data.locations.findIndex(l => l.id === loc.id);
