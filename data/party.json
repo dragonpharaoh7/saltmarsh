@@ -477,13 +477,13 @@
     "journal": [
       {
         "session": "Session 1",
-        "event": "Healed a goblin rather than finishing it",
+        "event": "Spared a goblin during the haunted house ambush",
         "tags": [
-          "healing",
+          "mercy",
           "compassion",
-          "mercy"
+          "justice"
         ],
-        "note": "It was wounded and done fighting. Some in the party questioned it."
+        "note": "The party killed most of them. When it was over, one remained. He let it go."
       }
     ]
   },
