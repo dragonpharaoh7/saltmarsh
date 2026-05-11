@@ -331,7 +331,7 @@ function storyRead(id){
       <div class="ch-num" style="text-align:center;margin-bottom:0.4rem">Chapter ${n.order}</div>
       <div class="reading-title">${n.title}</div>
       <div class="gold-rule"></div>
-      ${n.body?`<div class="reading-body">${n.body}</div>`:'<div class="empty-state">Content coming soon.</div>'}
+      ${n.body?`<div class="reading-body">${formatProse(n.body)}</div>`:'<div class="empty-state">Content coming soon.</div>'}
     </div>`; show('p-story-read');
 }
 
@@ -654,6 +654,19 @@ function parseNotes(raw){
   return html;
 }
 
+function formatProse(text){
+  return text.split('\n').map(line=>{
+    if(/^─+$/.test(line.trim())){
+      return '<div style="text-align:center;margin:1.75rem 0;color:rgba(196,134,10,0.3);letter-spacing:0.3em;font-size:0.9rem">✦ ✦ ✦</div>';
+    }
+    if(line.trim()==='') return '<br>';
+    // Bold **text**
+    let l = line.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+    // Italic *text*
+    l = l.replace(/\*(.+?)\*/g,'<em>$1</em>');
+    return '<span style="display:block">'+l+'</span>';
+  }).join('');
+}
 function openLightbox(src){
   const lb=document.createElement('div');lb.className='art-lightbox';
   lb.innerHTML=`<img src="${src}" alt="Character art">`;
@@ -662,4 +675,4 @@ function openLightbox(src){
 init();
 </script>
 </body>
-</html>
+</html>v
