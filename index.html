@@ -130,6 +130,12 @@ nav{position:sticky;top:0;z-index:100;background:rgba(12,25,32,0.94);backdrop-fi
 
 /* PARTY LIST */
 .party-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:11px}
+
+.pc-portrait{width:80px;height:80px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid rgba(196,134,10,0.35);flex-shrink:0}
+.char-art{width:100%;border-radius:4px;border:1px solid var(--border);margin-top:0.5rem;display:block;cursor:pointer;transition:opacity 0.2s}
+.char-art:hover{opacity:0.88}
+.art-lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:999;display:flex;align-items:center;justify-content:center;cursor:pointer;animation:fadeIn 0.2s ease}
+.art-lightbox img{max-width:92vw;max-height:92vh;border-radius:4px;border:1px solid var(--border)}
 .pc-card{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:1.2rem;text-align:center;transition:all 0.18s}
 .pc-card.has{cursor:pointer}.pc-card.has:hover{border-color:var(--border-hi);background:var(--surface-hover)}
 .pc-card.empty{opacity:0.35}
@@ -391,7 +397,9 @@ function renderParty(){
   D.party.forEach(pc=>{
     const has=!!pc.body; const c=document.createElement('div');
     c.className='pc-card'+(has?' has':' empty');
-    c.innerHTML=`<div class="pc-init">${pc.name.charAt(0)}</div><div class="pc-name">${pc.name}</div>${pc.tagline?`<div class="pc-tagline">${pc.tagline}</div>`:''}`;
+    c.innerHTML=pc.portrait
+      ?`<img src="${pc.portrait}" class="pc-portrait" alt="${pc.name}" style="margin:0 auto 0.7rem"><div class="pc-name">${pc.name}</div>${pc.tagline?`<div class="pc-tagline">${pc.tagline}</div>`:''}`
+      :`<div class="pc-init">${pc.name.charAt(0)}</div><div class="pc-name">${pc.name}</div>${pc.tagline?`<div class="pc-tagline">${pc.tagline}</div>`:''}`;
     if(has)c.onclick=()=>go('party/'+pc.id); g.appendChild(c);
   });
 }
@@ -407,7 +415,7 @@ function partyDetail(id){
   el.innerHTML=`
     <div class="detail-back"><button class="back-btn" onclick="go('party')">← Party</button></div>
     <div class="detail-hero">
-      <div class="pc-init" style="width:48px;height:48px;font-size:1.1rem;border-radius:50%">${pc.name.charAt(0)}</div>
+      ${pc.portrait?`<img src="${pc.portrait}" class="pc-portrait" style="width:72px;height:72px" alt="${pc.name}">`:`<div class="pc-init" style="width:72px;height:72px;font-size:1.3rem;border-radius:50%">${pc.name.charAt(0)}</div>`}
       <div>
         <div class="detail-title">${pc.name}</div>
         ${pc.tagline?`<div class="detail-meta">${pc.tagline}</div>`:''}
@@ -437,7 +445,8 @@ function partyDetail(id){
         </div>`:''}
       </div>
     </div>
-    ${pc.body?`<div class="dsec" style="margin-top:1.5rem"><div class="lbl lbl-blue">Background</div><div class="reading-body" style="font-size:1rem;line-height:1.9">${pc.body}</div></div>`:''}`;
+    ${pc.body?`<div class="dsec" style="margin-top:1.5rem"><div class="lbl lbl-blue">Background</div><div class="reading-body" style="font-size:1rem;line-height:1.9">${pc.body}</div></div>`:''}
+    ${pc.art&&pc.art.length?`<div class="dsec" style="margin-top:2rem"><div class="lbl lbl-gold">Character Art</div>${pc.art.map(src=>`<img src="${src}" class="char-art" alt="Character art" onclick="openLightbox('${src}')">`).join('')}</div>`:''}`;
   document.title=pc.name+' — '+D.campaign.name; show('p-party-detail');
 }
 
@@ -462,6 +471,11 @@ function parseNotes(raw){
   return html;
 }
 
+function openLightbox(src){
+  const lb=document.createElement('div');lb.className='art-lightbox';
+  lb.innerHTML=`<img src="${src}" alt="Character art">`;
+  lb.onclick=()=>lb.remove(); document.body.appendChild(lb);
+}
 init();
 </script>
 </body>
