@@ -136,6 +136,11 @@ nav{position:sticky;top:0;z-index:100;background:rgba(12,25,32,0.94);backdrop-fi
 .char-art:hover{opacity:0.88}
 .art-lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:999;display:flex;align-items:center;justify-content:center;cursor:pointer;animation:fadeIn 0.2s ease}
 .art-lightbox img{max-width:92vw;max-height:92vh;border-radius:4px;border:1px solid var(--border)}
+
+.treatise{background:rgba(196,134,10,0.04);border:1px solid rgba(196,134,10,0.18);border-radius:3px;padding:1.25rem 1.5rem;margin-top:0.5rem}
+.treatise-title{font-family:var(--display);font-size:0.78rem;color:var(--gold-hi);letter-spacing:0.04em;margin-bottom:2px}
+.treatise-byline{font-size:0.8rem;color:var(--parch-dim);font-style:italic;margin-bottom:1rem;padding-bottom:0.75rem;border-bottom:1px solid rgba(196,134,10,0.12)}
+.treatise-body{font-size:0.95rem;line-height:1.85;color:rgba(245,234,214,0.78);white-space:pre-line}
 .pc-card{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:1.2rem;text-align:center;transition:all 0.18s}
 .pc-card.has{cursor:pointer}.pc-card.has:hover{border-color:var(--border-hi);background:var(--surface-hover)}
 .pc-card.empty{opacity:0.35}
@@ -446,6 +451,7 @@ function partyDetail(id){
       </div>
     </div>
     ${pc.body?`<div class="dsec" style="margin-top:1.5rem"><div class="lbl lbl-blue">Background</div><div class="reading-body" style="font-size:1rem;line-height:1.9">${pc.body}</div></div>`:''}
+    ${pc.treatise?`<div class="dsec" style="margin-top:2rem"><div class="lbl lbl-blue">Published Works</div><div class="treatise"><div class="treatise-title">${pc.treatise.title}</div><div class="treatise-byline">${pc.treatise.byline}</div><div class="treatise-body">${pc.treatise.excerpt}</div></div></div>`:''}
     ${pc.art&&pc.art.length?`<div class="dsec" style="margin-top:2rem"><div class="lbl lbl-gold">Character Art</div>${pc.art.map(src=>`<img src="${src}" class="char-art" alt="Character art" onclick="openLightbox('${src}')">`).join('')}</div>`:''}`;
   document.title=pc.name+' — '+D.campaign.name; show('p-party-detail');
 }
