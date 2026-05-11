@@ -6,5 +6,13 @@
     "giver": "Thalion (personal interest)",
     "reward": "",
     "body": "Just outside Saltmarsh stands an old manor house with a reputation for strange happenings — lights in darkened windows, sounds with no source, locals who won't go near it after dusk. Thalion has taken a personal interest in investigating the cause. Whether the haunting is real, manufactured, or something stranger entirely remains to be seen."
+  },
+  {
+    "id": "return-tides-of-the-azure",
+    "title": "Return Book for Reward: Tides of the Azure",
+    "status": "active",
+    "giver": "Favance Zire (Wicker Goat job board",
+    "reward": "15 gp intact, 5 if damaged",
+    "body": "For the return of one missing book: The Tides of the Azure: A Sailor's Almanac and Ledger of Strange Waters<br>Bound in cracked blue leather, stamped with a silver wave-mark. Last believed to be in the possession of Old Rellan Hark, lately of the docks.<b>Book may be returned to Favance Zire, scribe and copyist, presently lodging near the Wicker Goat."
   }
 ]
