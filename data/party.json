@@ -121,21 +121,371 @@
   },
   {
     "id": "thalion",
-    "name": "Thalion",
+    "name": "Thalion Sunholme",
     "player": "thalion-p1",
-    "tagline": "",
-    "stats": {},
-    "quote": "",
-    "spheres": {},
-    "traits": [],
-    "goals": {
-      "short": [],
-      "long": []
+    "tagline": "Oathkeeper of Saltmarsh",
+    "stats": {
+      "alias": "The Oathkeeper",
+      "origin": "Saltmarsh, Wild Coast",
+      "occupation": "Guardian, Defender",
+      "alignment": "Lawful Good",
+      "height": "5'9\"",
+      "weight": "174 lbs",
+      "armor": "Hide Armor",
+      "weapon": "Bastard Sword",
+      "coat of arms": "Lighthouse of Saltmarsh"
     },
-    "adversaries": [],
-    "body": "",
-    "portrait": "",
-    "art": []
+    "quote": "Saltmarsh may not be a fortress, but it is my home. And no darkness will claim it while I stand.",
+    "spheres": {},
+    "traits": [
+      {
+        "name": "Steady Presence",
+        "desc": "Speaks little, but when he does, people listen. He weighs words as carefully as sword blows."
+      },
+      {
+        "name": "Unshakeable Resolve",
+        "desc": "Once he commits to a course of action, fear, threats, or temptation rarely sway him."
+      },
+      {
+        "name": "Protective Instinct",
+        "desc": "Instinctively positions himself between danger and others — physically and socially."
+      },
+      {
+        "name": "Suspicious of Authority",
+        "desc": "The wars taught him that banners and titles do not equal virtue."
+      },
+      {
+        "name": "Quiet Compassion",
+        "desc": "Helps without being seen — repairing nets, standing night watch, escorting the vulnerable."
+      },
+      {
+        "name": "Burdened by Memory",
+        "desc": "Carries the weight of those he failed to save during the chaos after the wars."
+      }
+    ],
+    "goals": {
+      "short": [
+        "Investigate the abandoned house near Saltmarsh, determining whether it is truly haunted or a front for criminal activity.",
+        "Break the grip of smugglers and raiders exploiting the marshes and coastline.",
+        "Restore confidence among Saltmarsh's folk so fear no longer rules their lives."
+      ],
+      "long": [
+        "Establish a defensive brotherhood or watch in Saltmarsh — sworn to a code rather than a crown or church.",
+        "Prevent the Wild Coast from descending into the lawlessness that followed the Greyhawk Wars.",
+        "Prove that honor can survive even when the old orders and faiths have failed."
+      ]
+    },
+    "adversaries": [
+      {
+        "name": "Smugglers of the Azure Coast",
+        "title": "Criminal Network",
+        "desc": "View Thalion as a growing threat to their operations and profits. His presence in Saltmarsh has already disrupted several runs."
+      },
+      {
+        "name": "Marsh Raiders",
+        "title": "Opportunist Warbands",
+        "desc": "Brutal opportunists who believe fear is the only law that matters. They have learned his name."
+      }
+    ],
+    "body": "Saltmarsh was never a place for heroes. It's a town that clings to life between the hungry sea and the schemes of those who'd rather see it swallowed. After the Greyhawk Wars, when the world seemed to sag under the weight of its own scars, Saltmarsh changed too — trade dried up, fear took root, and the people learned to keep their heads down.\n\nI refused to do the same.\n\nI wasn't born to any noble order or sacred calling. No shining sign struck me from the heavens. My oath grew from something simpler — and perhaps stronger: seeing too much suffering and deciding I would no longer stand aside. The wars had left a wake of bandits, slavers, deserters, and worse along the Wild Coast and the Azure frontier. Saltmarsh was small, but it was vulnerable, and danger sees opportunity in places like this.\n\nI took up the blade when I was old enough to lift it, and the code I forged for myself became my compass.\n\nSome call me a paladin. I don't argue the term, though mine is a different sort than the old tales describe. My power doesn't come from a god's blessing — it comes from resolve, discipline, and a will hardened by everything I've seen.\n\nSaltmarsh tested that resolve more than once. The town is rebuilding — slowly, painfully — and enemies circle like sharks in shallow water. Smugglers use the marshes as their sanctuary. Raiders strike from the sea. And recently, whispers have begun anew about strange goings-on at the abandoned house outside town. Some say it's haunted. Others say it's a hideout for criminals. I don't much care which — both need confronting.\n\nWhen I walk the streets at dusk and see lantern light flicker in the windows, I'm reminded why I hold fast to my oath. This town is worth protecting. These people deserve a chance to live without fear, even in these broken years after the wars.\n\nSaltmarsh may not be a fortress, but it is my home. And as long as I draw breath, no darkness — ghostly or mortal — will claim it without facing me first.",
+    "portrait": "assets/thalion-portrait.png",
+    "art": [
+      "assets/thalion-sheet.png"
+    ],
+    "oath": [
+      "Stand between danger and the innocent.",
+      "Speak truth, even when silence is safer.",
+      "Act with honor, even when victory tempts otherwise.",
+      "And never allow fear to rule the hearts of good folk."
+    ],
+    "roleplay_cue": "He maintains his weapons meticulously, especially before entering old ruins or abandoned buildings — order imposed on decay.",
+    "treatise": null,
+    "deityCompass": {
+      "description": "Thalion swore no oath to any god. He forged his own code from what he has seen — what was lost, what was abandoned, what still needed protecting. The gods, if they are watching, have not yet spoken. But actions leave marks. And something is listening.",
+      "deities": [
+        {
+          "name": "Heironeous",
+          "epithet": "The Invincible",
+          "alignment": "Lawful Good",
+          "domain": "Valor, Honor, Justice in Battle",
+          "affinities": [
+            "valor",
+            "honor",
+            "combat",
+            "chivalry",
+            "justice"
+          ],
+          "description": "The god of knights and champions. He calls those who fight not for glory, but because someone must stand between evil and the world.",
+          "color": "#7090d8"
+        },
+        {
+          "name": "Mayaheine",
+          "epithet": "Shield of the Innocent",
+          "alignment": "Lawful Good",
+          "domain": "Protection, Justice, Valor for the Defenseless",
+          "affinities": [
+            "protection",
+            "innocents",
+            "valor",
+            "justice",
+            "sacrifice"
+          ],
+          "description": "A young goddess, herself once mortal. She calls those who stand before the helpless not because they were born to it — but because they chose to.",
+          "color": "#9090e0"
+        },
+        {
+          "name": "Pholtus",
+          "epithet": "Of the Blinding Light",
+          "alignment": "Lawful Good",
+          "domain": "Light, Resolution, Law, Absolute Conviction",
+          "affinities": [
+            "law",
+            "order",
+            "conviction",
+            "justice",
+            "righteous-fury"
+          ],
+          "description": "The god of those who do not bend. His light is not warm — it is clarifying. He favors the certain, the unyielding, those who hold the line when others break.",
+          "color": "#e0e8ff"
+        },
+        {
+          "name": "Rao",
+          "epithet": "The Mediator",
+          "alignment": "Lawful Good",
+          "domain": "Peace, Reason, Serenity, Diplomacy",
+          "affinities": [
+            "peace",
+            "serenity",
+            "reason",
+            "diplomacy",
+            "truth"
+          ],
+          "description": "The god of calm in chaos. He does not demand warriors — he calls those who resolve what others would simply cut through.",
+          "color": "#c0d8f0"
+        },
+        {
+          "name": "Fortubo",
+          "epithet": "The Rock",
+          "alignment": "Lawful Good",
+          "domain": "Stone, Guardianship, Steadfast Protection",
+          "affinities": [
+            "protection",
+            "vigilance",
+            "honor",
+            "steadfastness",
+            "community"
+          ],
+          "description": "Old god of dwarves and defenders. He favors those who dig in and do not move — not because they cannot flee, but because they have decided this ground matters.",
+          "color": "#b0a080"
+        },
+        {
+          "name": "Pelor",
+          "epithet": "The Shining One",
+          "alignment": "Neutral Good",
+          "domain": "Sun, Healing, Strength, Mercy",
+          "affinities": [
+            "healing",
+            "compassion",
+            "mercy",
+            "light",
+            "community"
+          ],
+          "description": "The god of warmth and renewal. He favors those who heal before they strike — and strike only so others may heal.",
+          "color": "#d8b830"
+        },
+        {
+          "name": "Zodal",
+          "epithet": "The Mercy-Bringer",
+          "alignment": "Neutral Good",
+          "domain": "Mercy, Hope, Benevolence",
+          "affinities": [
+            "mercy",
+            "hope",
+            "compassion",
+            "healing",
+            "sacrifice"
+          ],
+          "description": "The god of those who forgive when they have every reason not to. He watches for acts of grace that cost something.",
+          "color": "#a8d8c0"
+        },
+        {
+          "name": "Berei",
+          "epithet": "Our Lady of the Grain",
+          "alignment": "Neutral Good",
+          "domain": "Home, Family, Community, Agriculture",
+          "affinities": [
+            "community",
+            "protection",
+            "compassion",
+            "innocents",
+            "sacrifice"
+          ],
+          "description": "The goddess of the hearth and the harvest. She does not ask for champions — she asks for neighbors. Those who quietly keep others alive.",
+          "color": "#c8a060"
+        },
+        {
+          "name": "Fharlanghn",
+          "epithet": "The Dweller on the Horizon",
+          "alignment": "True Neutral",
+          "domain": "Roads, Travel, Distance, the Long Watch",
+          "affinities": [
+            "travel",
+            "vigilance",
+            "wandering",
+            "freedom",
+            "truth"
+          ],
+          "description": "The god of those who keep moving — not to flee, but because the road itself is the calling. He watches those who walk toward trouble when others walk away.",
+          "color": "#90b890"
+        },
+        {
+          "name": "Trithereon",
+          "epithet": "The Summoner",
+          "alignment": "Chaotic Good",
+          "domain": "Liberty, Retribution, Self-Determination",
+          "affinities": [
+            "freedom",
+            "defiance",
+            "retribution",
+            "protection",
+            "community"
+          ],
+          "description": "The god of those who will not be owned. He watches those who refuse to let fear govern — not because law demands it, but because they simply will not bend.",
+          "color": "#80c060"
+        },
+        {
+          "name": "Kord",
+          "epithet": "The Brawler",
+          "alignment": "Chaotic Good",
+          "domain": "Strength, Athletics, Courage, Honest Battle",
+          "affinities": [
+            "strength",
+            "courage",
+            "combat",
+            "valor",
+            "defiance"
+          ],
+          "description": "The god of those who throw themselves in without guarantee of winning. He has no patience for careful plans — only for the moment you step forward anyway.",
+          "color": "#e07040"
+        },
+        {
+          "name": "St. Cuthbert",
+          "epithet": "Of the Cudgel",
+          "alignment": "Lawful Neutral",
+          "domain": "Common Sense, Truth, Righteous Justice",
+          "affinities": [
+            "justice",
+            "truth",
+            "order",
+            "pragmatism",
+            "righteous-fury"
+          ],
+          "description": "The god of stubborn righteousness. He has no patience for ceremony — only for doing what is right, bluntly and completely.",
+          "color": "#c07830"
+        },
+        {
+          "name": "Osprem",
+          "epithet": "The Wave Mistress",
+          "alignment": "Lawful Neutral",
+          "domain": "Sea Voyages, Ships, the Drowned",
+          "affinities": [
+            "sea",
+            "vigilance",
+            "sacrifice",
+            "honor",
+            "community"
+          ],
+          "description": "Goddess of those who brave the water to protect others. She honors those who go out in the storm to bring others home.",
+          "color": "#5090b8"
+        },
+        {
+          "name": "Obad-Hai",
+          "epithet": "The Shalm",
+          "alignment": "True Neutral",
+          "domain": "Nature, Wildness, the Balance",
+          "affinities": [
+            "nature",
+            "balance",
+            "freedom",
+            "wildness",
+            "wandering"
+          ],
+          "description": "The god of the natural world, indifferent to morality but not to truth. He watches those who act without needing an audience.",
+          "color": "#689060"
+        },
+        {
+          "name": "Celestian",
+          "epithet": "The Far Wanderer",
+          "alignment": "True Neutral",
+          "domain": "Stars, Space, Seekers of Truth",
+          "affinities": [
+            "wandering",
+            "truth",
+            "serenity",
+            "vigilance",
+            "reason"
+          ],
+          "description": "The god of those who look upward and feel something wordless. He favors the patient observer — those who see the shape of things before acting.",
+          "color": "#7070c0"
+        },
+        {
+          "name": "Hextor",
+          "epithet": "The Scourge of Battle",
+          "alignment": "Lawful Evil",
+          "domain": "War, Discord, Tyranny, Domination",
+          "affinities": [
+            "domination",
+            "violence",
+            "law",
+            "pride",
+            "cruelty"
+          ],
+          "description": "The dark twin of Heironeous. He watches those whose love of order tips toward control — whose protection becomes possession. He is patient.",
+          "color": "#a03030"
+        },
+        {
+          "name": "Erythnul",
+          "epithet": "The Many",
+          "alignment": "Chaotic Evil",
+          "domain": "Hate, Envy, Panic, Slaughter",
+          "affinities": [
+            "violence",
+            "cruelty",
+            "rage",
+            "darkness",
+            "slaughter"
+          ],
+          "description": "Not a god to be sought. But those who let anger become habit, who stop asking why they fight — sometimes they find he was already watching.",
+          "color": "#801818"
+        },
+        {
+          "name": "Nerull",
+          "epithet": "The Reaper",
+          "alignment": "Neutral Evil",
+          "domain": "Death, Darkness, Murder",
+          "affinities": [
+            "death",
+            "darkness",
+            "violence",
+            "cruelty"
+          ],
+          "description": "The harvester of the unredeemed dead. He makes no claim until the moment comes. But some who begin with purpose end with him.",
+          "color": "#504050"
+        }
+      ]
+    },
+    "journal": [
+      {
+        "session": "Session 1",
+        "event": "Healed a goblin rather than finishing it",
+        "tags": [
+          "healing",
+          "compassion",
+          "mercy"
+        ],
+        "note": "It was wounded and done fighting. Some in the party questioned it."
+      }
+    ]
   },
   {
     "id": "zaphod",
