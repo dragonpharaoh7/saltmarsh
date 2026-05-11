@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saltmarsh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0c1920;--surface:rgba(245,234,214,0.045);--surface-hover:rgba(245,234,214,0.08);
+  --border:rgba(196,134,10,0.16);--border-hi:rgba(196,134,10,0.4);
+  --parch:#f5ead6;--parch-mid:#d4b98a;--parch-dim:rgba(245,234,214,0.45);
+  --gold:#c4860a;--gold-hi:#f0c060;--gold-dim:rgba(196,134,10,0.7);
+  --blue:#6aadca;--blue-dim:rgba(138,180,200,0.65);
+  --green:#78b860;--serif:'Crimson Pro',Georgia,serif;--display:'Cinzel',serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--serif);background:var(--bg);color:var(--parch);min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(30,61,79,0.7) 0%,transparent 70%);pointer-events:none;z-index:0}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(12,25,32,0.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:1.5rem;height:50px;padding:0 1.5rem}
+.nav-brand{font-family:var(--display);font-size:0.95rem;letter-spacing:0.1em;color:var(--gold-hi);cursor:pointer;white-space:nowrap;flex-shrink:0}
+.nav-links{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-link{font-family:var(--display);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--parch-dim);padding:5px 11px;border-radius:2px;cursor:pointer;white-space:nowrap;border:1px solid transparent;transition:all 0.2s}
+.nav-link:hover{color:var(--parch);background:rgba(245,234,214,0.05)}
+.nav-link.active{color:var(--gold-hi);border-color:var(--border-hi);background:rgba(196,134,10,0.1)}
+
+/* PAGES */
+.page{position:relative;z-index:10;max-width:1100px;margin:0 auto;padding:2.5rem 1.5rem 5rem;display:none}
+.page.active{display:block;animation:fadeIn 0.2s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+
+.page-title{font-family:var(--display);font-size:clamp(1.4rem,3.5vw,2rem);font-weight:600;color:var(--gold-hi);letter-spacing:0.05em;margin-bottom:0.3rem}
+.page-sub{font-size:0.95rem;font-style:italic;color:var(--parch-dim);margin-bottom:2rem}
+
+/* LABELS */
+.lbl{font-family:var(--display);font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;padding-bottom:0.45rem;border-bottom:1px solid var(--border);margin-bottom:0.8rem}
+.lbl-gold{color:var(--gold-dim)}.lbl-blue{color:var(--blue-dim)}
+
+/* CARD GRID */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(295px,1fr));gap:11px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:3px;cursor:pointer;transition:all 0.18s}
+.card:hover{border-color:var(--border-hi);background:var(--surface-hover);transform:translateY(-1px)}
+.card-inner{display:flex;align-items:flex-start;gap:11px;padding:0.85rem 1.1rem}
+.badge{font-family:var(--display);font-size:0.68rem;font-weight:600;min-width:27px;height:27px;border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid;margin-top:2px}
+.card-title{font-family:var(--display);font-size:0.87rem;font-weight:600;color:var(--gold-hi);letter-spacing:0.02em;line-height:1.3}
+.card-meta{font-size:0.8rem;color:var(--parch-dim);font-style:italic;margin-top:2px}
+.card-arrow{margin-left:auto;color:rgba(245,234,214,0.15);flex-shrink:0;margin-top:3px;transition:all 0.18s}
+.card:hover .card-arrow{color:var(--gold);transform:translateX(3px)}
+.cat-tag{font-family:var(--display);font-size:0.53rem;letter-spacing:0.1em;padding:2px 7px;border-radius:2px;margin-top:5px;display:inline-block;border:1px solid;text-transform:uppercase}
+.tag-chip{background:rgba(138,180,200,0.1);border:1px solid rgba(138,180,200,0.22);color:var(--blue);font-family:var(--display);font-size:0.52rem;letter-spacing:0.08em;text-transform:uppercase;padding:2px 7px;border-radius:2px}
+.has-dot{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--blue);margin-left:6px;vertical-align:middle;opacity:0.6}
+.tags-row{margin-top:5px;display:flex;flex-wrap:wrap;gap:4px}
+.cat-tavern{color:#e0a060;border-color:rgba(224,160,96,0.32);background:rgba(224,160,96,0.07)}
+.cat-civic{color:#88c488;border-color:rgba(136,196,136,0.32);background:rgba(136,196,136,0.07)}
+.cat-trade{color:#70b0d8;border-color:rgba(112,176,216,0.32);background:rgba(112,176,216,0.07)}
+.cat-docks{color:#d8c860;border-color:rgba(216,200,96,0.32);background:rgba(216,200,96,0.07)}
+.cat-landmark{color:#b888d8;border-color:rgba(184,136,216,0.32);background:rgba(184,136,216,0.07)}
+
+/* FILTERS */
+.search-bar{position:relative;margin-bottom:1.1rem}
+.search-bar input{width:100%;padding:0.62rem 1rem 0.62rem 2.4rem;background:rgba(245,234,214,0.9);border:1px solid var(--parch-mid);border-radius:3px;font-family:var(--serif);font-size:1rem;color:#1a1208;outline:none}
+.search-bar input:focus{box-shadow:0 0 0 2px rgba(196,134,10,0.35)}
+.search-bar input::placeholder{color:rgba(122,96,69,0.65);font-style:italic}
+.search-bar::before{content:'⌕';position:absolute;left:11px;top:50%;transform:translateY(-50%);color:rgba(122,96,69,0.55);pointer-events:none}
+.filter-row{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+.filter-btn{font-family:var(--display);font-size:0.6rem;letter-spacing:0.08em;padding:4px 11px;border-radius:2px;border:1px solid rgba(196,134,10,0.28);background:transparent;color:var(--parch-mid);cursor:pointer;transition:all 0.18s}
+.filter-btn:hover{background:rgba(196,134,10,0.1);color:var(--gold-hi)}
+.filter-btn.active{background:rgba(196,134,10,0.18);border-color:var(--gold);color:var(--gold-hi)}
+.result-count{font-size:0.78rem;font-style:italic;color:rgba(245,234,214,0.28);margin-bottom:1.4rem}
+
+/* DETAIL NAV */
+.detail-back{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.75rem}
+.back-btn{font-family:var(--display);font-size:0.65rem;letter-spacing:0.1em;color:var(--parch-mid);border:1px solid rgba(196,134,10,0.28);background:transparent;padding:5px 12px;border-radius:2px;cursor:pointer;transition:all 0.18s}
+.back-btn:hover{background:rgba(196,134,10,0.1);color:var(--gold-hi)}
+.pn-row{display:flex;gap:5px}
+.pn-btn{font-family:var(--display);font-size:0.6rem;letter-spacing:0.08em;color:rgba(245,234,214,0.28);border:1px solid rgba(196,134,10,0.13);background:transparent;padding:5px 10px;border-radius:2px;cursor:pointer;transition:all 0.18s}
+.pn-btn:hover{color:var(--gold-hi);border-color:var(--border-hi)}
+.pn-btn.off{opacity:0.18;pointer-events:none}
+
+/* DETAIL HERO */
+.detail-hero{display:flex;align-items:flex-start;gap:1.2rem;margin-bottom:2rem;padding-bottom:1.75rem;border-bottom:1px solid var(--border)}
+.detail-badge{font-family:var(--display);font-size:1rem;font-weight:600;width:44px;height:44px;border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid}
+.detail-title{font-family:var(--display);font-size:clamp(1.4rem,3.5vw,2rem);font-weight:600;color:var(--gold-hi);letter-spacing:0.04em;line-height:1.2}
+.detail-meta{font-size:0.92rem;color:var(--parch-dim);font-style:italic;margin-top:5px}
+.dsec{margin-bottom:1.75rem}
+.desc-text{font-size:1.06rem;line-height:1.85;color:rgba(245,234,214,0.85)}
+.npc-tag{display:inline-block;font-size:0.9rem;padding:3px 12px;margin:2px 3px 2px 0;background:rgba(196,134,10,0.08);border:1px solid rgba(196,134,10,0.22);border-radius:2px;color:var(--parch-mid);font-style:italic}
+
+/* NOTES */
+.notes{font-size:0.98rem;line-height:1.83;color:rgba(212,234,242,0.76)}
+.notes .nh{display:block;font-family:var(--display);font-size:0.6rem;letter-spacing:0.15em;color:var(--blue-dim);text-transform:uppercase;margin:1.5rem 0 0.55rem;padding-bottom:0.32rem;border-bottom:1px solid rgba(138,180,200,0.1)}
+.notes .nh:first-child{margin-top:0}
+.notes p{margin-bottom:0.65rem}
+.pblock{margin-bottom:0.25rem}
+.notes .pr{display:flex;justify-content:space-between;align-items:baseline;padding:4px 0;border-bottom:1px solid rgba(196,134,10,0.06);gap:1rem;font-size:0.93rem}
+.notes .pr:last-child{border-bottom:none}
+.notes .prn{color:rgba(245,234,214,0.76)}.notes .prv{color:var(--gold-hi);font-family:var(--display);font-size:0.8rem;white-space:nowrap}
+.notes .ni{padding-left:1rem;position:relative;margin-bottom:0.28rem;color:rgba(212,234,242,0.65);font-size:0.93rem}
+.notes .ni::before{content:'·';position:absolute;left:0;color:rgba(138,180,200,0.38)}
+
+/* STORY */
+.chapter-list{display:flex;flex-direction:column;gap:7px}
+.ch-card{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:0.9rem 1.1rem;display:flex;align-items:center;gap:1rem;transition:all 0.18s}
+.ch-card.has{cursor:pointer}.ch-card.has:hover{border-color:var(--border-hi);background:var(--surface-hover)}
+.ch-card.empty{opacity:0.38}
+.ch-num{font-family:var(--display);font-size:0.6rem;letter-spacing:0.1em;color:var(--parch-dim);min-width:38px}
+.ch-title{font-family:var(--display);font-size:0.85rem;color:var(--gold-hi);letter-spacing:0.02em}
+.ch-card.empty .ch-title{color:var(--parch-dim)}
+.ch-arrow{margin-left:auto;color:rgba(245,234,214,0.13);transition:all 0.18s}
+.ch-card.has:hover .ch-arrow{color:var(--gold);transform:translateX(3px)}
+.reading{max-width:660px;margin:0 auto}
+.reading-title{font-family:var(--display);font-size:clamp(1.3rem,3vw,1.8rem);font-weight:600;color:var(--gold-hi);text-align:center;margin-bottom:0.45rem}
+.reading-body{font-size:1.1rem;line-height:2;color:rgba(245,234,214,0.86);white-space:pre-line}
+.gold-rule{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1.5rem 0 2rem}
+
+/* QUESTS */
+.quest-card{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:1rem 1.2rem;margin-bottom:8px}
+.quest-header{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.quest-title{font-family:var(--display);font-size:0.87rem;color:var(--gold-hi);letter-spacing:0.02em}
+.q-status{font-family:var(--display);font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;padding:2px 8px;border-radius:2px}
+.q-active{color:var(--green);border:1px solid rgba(120,184,96,0.28);background:rgba(120,184,96,0.08)}
+.q-complete{color:var(--parch-dim);border:1px solid rgba(180,170,150,0.18);background:rgba(180,170,150,0.04)}
+.quest-body{font-size:0.93rem;line-height:1.72;color:rgba(245,234,214,0.68);white-space:pre-line}
+
+/* PARTY LIST */
+.party-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:11px}
+.pc-card{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:1.2rem;text-align:center;transition:all 0.18s}
+.pc-card.has{cursor:pointer}.pc-card.has:hover{border-color:var(--border-hi);background:var(--surface-hover)}
+.pc-card.empty{opacity:0.35}
+.pc-init{font-family:var(--display);width:46px;height:46px;border-radius:50%;background:rgba(196,134,10,0.08);border:1px solid rgba(196,134,10,0.22);display:flex;align-items:center;justify-content:center;margin:0 auto 0.7rem;font-size:1rem;color:var(--gold-hi)}
+.pc-name{font-family:var(--display);font-size:0.9rem;color:var(--gold-hi);letter-spacing:0.04em}
+.pc-tagline{font-size:0.78rem;color:var(--parch-dim);font-style:italic;margin-top:3px}
+
+/* CHARACTER SHEET */
+.char-sheet{display:grid;grid-template-columns:1fr 1fr;gap:1.75rem}
+@media(max-width:640px){.char-sheet{grid-template-columns:1fr}}
+.char-quote{font-family:var(--display);font-size:0.95rem;color:var(--gold-hi);text-align:center;padding:1.2rem;border:1px solid var(--border);border-radius:3px;margin-bottom:1.75rem;font-style:italic;letter-spacing:0.03em}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 1rem}
+.stat-row{display:flex;justify-content:space-between;align-items:baseline;font-size:0.88rem;padding:3px 0;border-bottom:1px solid rgba(196,134,10,0.06)}
+.stat-row:last-child{border-bottom:none}
+.stat-k{color:var(--parch-dim);font-size:0.78rem;font-family:var(--display);letter-spacing:0.06em;text-transform:uppercase}
+.stat-v{color:var(--parch);font-size:0.88rem}
+.trait-item{padding:0.6rem 0;border-bottom:1px solid rgba(196,134,10,0.07)}
+.trait-item:last-child{border-bottom:none}
+.trait-name{font-family:var(--display);font-size:0.72rem;letter-spacing:0.06em;color:var(--gold-hi);text-transform:uppercase;margin-bottom:3px}
+.trait-desc{font-size:0.9rem;color:rgba(245,234,214,0.75);line-height:1.65}
+.goal-item{font-size:0.92rem;color:rgba(245,234,214,0.78);line-height:1.65;padding:0.35rem 0 0.35rem 1rem;position:relative;border-bottom:1px solid rgba(196,134,10,0.06)}
+.goal-item:last-child{border-bottom:none}
+.goal-item::before{content:'·';position:absolute;left:0;color:var(--gold-dim)}
+.adversary-card{background:rgba(139,32,32,0.08);border:1px solid rgba(192,80,80,0.18);border-radius:3px;padding:0.75rem 1rem;margin-bottom:6px}
+.adv-name{font-family:var(--display);font-size:0.75rem;color:#e08080;letter-spacing:0.05em}
+.adv-title{font-size:0.78rem;color:var(--parch-dim);font-style:italic;margin-bottom:4px}
+.adv-desc{font-size:0.88rem;color:rgba(245,234,214,0.7);line-height:1.6}
+.sphere-row{font-size:0.88rem;line-height:1.65;color:rgba(245,234,214,0.72);padding:3px 0}
+.sphere-k{font-family:var(--display);font-size:0.65rem;letter-spacing:0.08em;color:var(--gold-dim);text-transform:uppercase;margin-right:6px}
+
+/* LORE */
+.lore-section{margin-bottom:2.25rem}
+
+/* EMPTY */
+.empty-state{text-align:center;padding:3.5rem 2rem;color:var(--parch-dim);font-style:italic;font-size:0.93rem;opacity:0.55}
+
+/* FOOTER */
+footer{position:relative;z-index:10;text-align:center;padding:1.75rem;border-top:1px solid var(--border);font-size:0.72rem;font-style:italic;color:rgba(245,234,214,0.17)}
+
+@media(max-width:640px){
+  .nav-inner{gap:0.75rem;padding:0 1rem}
+  .page{padding:2rem 1rem 4rem}
+  .card-grid{grid-template-columns:1fr}
+  .detail-hero{flex-direction:column;gap:0.6rem}
+  .party-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand" onclick="go('')">⚓ <span id="nav-name">Saltmarsh</span></div>
+    <div class="nav-links" id="nav-links"></div>
+  </div>
+</nav>
+
+<div class="page" id="p-story"></div>
+<div class="page" id="p-story-read"></div>
+<div class="page" id="p-locations"></div>
+<div class="page" id="p-loc-detail"></div>
+<div class="page" id="p-quests"></div>
+<div class="page" id="p-lore"></div>
+<div class="page" id="p-lore-detail"></div>
+<div class="page" id="p-party"></div>
+<div class="page" id="p-party-detail"></div>
+
+<footer><p>Saltmarsh · Azure Sea · Campaign Compendium</p></footer>
+
+<script>
+const SECTIONS=[{id:'locations',l:'Locations'},{id:'story',l:'Story'},{id:'quests',l:'Quests'},{id:'lore',l:'Lore'},{id:'party',l:'Party'}];
+const CAT_LABELS={tavern:'Tavern',civic:'Civic',trade:'Trade',docks:'Docks',landmark:'Landmark'};
+const LOC_CATS=[{id:'all',l:'All'},{id:'tavern',l:'Taverns'},{id:'civic',l:'Civic'},{id:'trade',l:'Trade'},{id:'docks',l:'Docks'},{id:'landmark',l:'Landmarks'}];
+let D={},locFilter='all';
+
+/* ── LOAD ── */
+async function init(){
+  const files=['campaign','locations','narratives','quests','lore','party'];
+  const v='?v='+Date.now();
+  try{
+    const results=await Promise.all(files.map(f=>fetch('data/'+f+'.json'+v).then(r=>r.json())));
+    D.campaign=results[0]; D.locations=results[1]; D.narratives=results[2];
+    D.quests=results[3];   D.lore=results[4];      D.party=results[5];
+  }catch(e){
+    document.getElementById('p-locations').innerHTML='<div class="empty-state">Could not load data files. Make sure the /data folder is uploaded to GitHub alongside index.html.</div>';
+    document.getElementById('p-locations').classList.add('active');return;
+  }
+  document.getElementById('nav-name').textContent=D.campaign.name;
+  document.title=D.campaign.name;
+  buildNav(); route();
+  window.addEventListener('hashchange',route);
+}
+
+function buildNav(){
+  const w=document.getElementById('nav-links');
+  SECTIONS.forEach(s=>{
+    const a=document.createElement('div');a.className='nav-link';a.dataset.s=s.id;a.textContent=s.l;
+    a.onclick=()=>go(s.id); w.appendChild(a);
+  });
+}
+function setNav(s){document.querySelectorAll('.nav-link').forEach(l=>l.classList.toggle('active',l.dataset.s===s))}
+function go(h){window.location.hash=h;window.scrollTo(0,0)}
+function show(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active')}
+
+function route(){
+  const h=window.location.hash.replace('#','');
+  const [sec,sub]=h.split('/'); const s=sec||'locations';
+  setNav(s);document.title=(s?s[0].toUpperCase()+s.slice(1)+' — ':'')+D.campaign.name;
+  if(s==='story'){ sub?storyRead(sub):(renderStory(),show('p-story')); return }
+  if(s==='locations'){ sub?locDetail(sub):(renderLocs(),show('p-locations')); return }
+  if(s==='quests'){ renderQuests(); show('p-quests'); return }
+  if(s==='lore'){ sub?loreDetail(sub):(renderLore(),show('p-lore')); return }
+  if(s==='party'){ sub?partyDetail(sub):(renderParty(),show('p-party')); return }
+  renderLocs(); show('p-locations'); setNav('locations');
+}
+
+/* ══ STORY ══ */
+function renderStory(){
+  const el=document.getElementById('p-story');
+  el.innerHTML=`<div class="page-title">Story</div><div class="page-sub">The narrative so far, chapter by chapter.</div><div class="chapter-list" id="ch-list"></div>`;
+  const list=el.querySelector('#ch-list');
+  [...D.narratives].sort((a,b)=>a.order-b.order).forEach(n=>{
+    const has=!!n.body; const c=document.createElement('div');
+    c.className='ch-card'+(has?' has':' empty');
+    c.innerHTML=`<span class="ch-num">Ch. ${n.order}</span><span class="ch-title">${n.title}</span>${has?'<span class="ch-arrow">→</span>':''}`;
+    if(has)c.onclick=()=>go('story/'+n.id); list.appendChild(c);
+  });
+}
+function storyRead(id){
+  const n=D.narratives.find(x=>x.id===id); if(!n)return;
+  const idx=D.narratives.findIndex(x=>x.id===id);
+  const prev=D.narratives[idx-1],next=D.narratives[idx+1];
+  const el=document.getElementById('p-story-read');
+  el.innerHTML=`
+    <div class="detail-back">
+      <button class="back-btn" onclick="go('story')">← All Chapters</button>
+      <div class="pn-row">
+        <button class="pn-btn${prev?'':' off'}" onclick="go('story/${prev?prev.id:''}')">← Prev</button>
+        <button class="pn-btn${next?'':' off'}" onclick="go('story/${next?next.id:''}')">Next →</button>
+      </div>
+    </div>
+    <div class="reading">
+      <div class="ch-num" style="text-align:center;margin-bottom:0.4rem">Chapter ${n.order}</div>
+      <div class="reading-title">${n.title}</div>
+      <div class="gold-rule"></div>
+      ${n.body?`<div class="reading-body">${n.body}</div>`:'<div class="empty-state">Content coming soon.</div>'}
+    </div>`; show('p-story-read');
+}
+
+/* ══ LOCATIONS ══ */
+function renderLocs(){
+  const el=document.getElementById('p-locations');
+  el.innerHTML=`
+    <div class="page-title">Saltmarsh — Locations</div>
+    <div class="page-sub">Town guide. Blue dot = detailed notes available.</div>
+    <div class="search-bar"><input id="loc-q" placeholder="Search locations, NPCs, notes…" oninput="filterLocs()"/></div>
+    <div class="filter-row" id="loc-f"></div>
+    <div class="result-count" id="loc-n"></div>
+    <div class="card-grid" id="loc-g"></div>`;
+  const fw=el.querySelector('#loc-f');
+  LOC_CATS.forEach(c=>{
+    const b=document.createElement('button'); b.className='filter-btn'+(c.id===locFilter?' active':'');
+    b.textContent=c.l; b.onclick=()=>{locFilter=c.id;fw.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');filterLocs()};
+    fw.appendChild(b);
+  }); filterLocs();
+}
+function filterLocs(){
+  const q=(document.getElementById('loc-q')||{value:''}).value.toLowerCase();
+  const g=document.getElementById('loc-g'); g.innerHTML=''; let n=0;
+  D.locations.forEach((l,i)=>{
+    if(locFilter!=='all'&&l.category!==locFilter)return;
+    const str=[l.name,l.meta,l.description,l.notes||'',...(l.npcs||[]),...(l.tags||[])].join(' ').toLowerCase();
+    if(q&&!str.includes(q))return; n++;
+    const hasTags=l.tags&&l.tags.length,hasN=l.notes&&l.notes.trim();
+    const c=document.createElement('div'); c.className='card'; c.style.animationDelay=(n*0.025)+'s';
+    c.innerHTML=`<div class="card-inner">
+      <div class="badge cat-${l.category}">${l.id}</div>
+      <div style="flex:1;min-width:0">
+        <div class="card-title">${l.name}${hasN?'<span class="has-dot"></span>':''}</div>
+        <div class="card-meta">${l.meta}</div>
+        <span class="cat-tag cat-${l.category}">${CAT_LABELS[l.category]||l.category}</span>
+        ${hasTags?`<div class="tags-row">${l.tags.map(t=>`<span class="tag-chip">${t}</span>`).join('')}</div>`:''}
+      </div><span class="card-arrow">→</span></div>`;
+    c.onclick=()=>go('locations/'+l.id); g.appendChild(c);
+  });
+  document.getElementById('loc-n').textContent=n===D.locations.length?n+' locations':n+' of '+D.locations.length;
+}
+function locDetail(sub){
+  const id=parseInt(sub); const l=D.locations.find(x=>x.id===id); if(!l)return;
+  const idx=D.locations.findIndex(x=>x.id===id);
+  const prev=D.locations[idx-1],next=D.locations[idx+1];
+  const el=document.getElementById('p-loc-detail');
+  el.innerHTML=`
+    <div class="detail-back">
+      <button class="back-btn" onclick="go('locations')">← All Locations</button>
+      <div class="pn-row">
+        <button class="pn-btn${prev?'':' off'}" onclick="go('locations/${prev?prev.id:''}')">← Prev</button>
+        <button class="pn-btn${next?'':' off'}" onclick="go('locations/${next?next.id:''}')">Next →</button>
+      </div>
+    </div>
+    <div class="detail-hero">
+      <div class="detail-badge cat-${l.category}">${l.id}</div>
+      <div>
+        <div class="detail-title">${l.name}</div>
+        <div class="detail-meta">${l.meta}</div>
+        <span class="cat-tag cat-${l.category}" style="margin-top:8px;display:inline-block">${CAT_LABELS[l.category]||l.category}</span>
+        ${l.tags&&l.tags.length?`<div class="tags-row" style="margin-top:7px">${l.tags.map(t=>`<span class="tag-chip">${t}</span>`).join('')}</div>`:''}
+      </div>
+    </div>
+    <div class="dsec"><div class="lbl lbl-gold">Overview</div><p class="desc-text">${l.description||'<em style="opacity:.5">No description yet.</em>'}</p></div>
+    ${l.npcs&&l.npcs.length?`<div class="dsec"><div class="lbl lbl-gold">Notable People</div>${l.npcs.map(n=>`<span class="npc-tag">${n}</span>`).join('')}</div>`:''}
+    ${l.notes&&l.notes.trim()?`<div class="dsec"><div class="lbl lbl-blue">Location Notes</div><div class="notes">${parseNotes(l.notes)}</div></div>`:''}`;
+  document.title=l.name+' — '+D.campaign.name; show('p-loc-detail');
+}
+
+/* ══ QUESTS ══ */
+function renderQuests(){
+  const el=document.getElementById('p-quests');
+  const active=D.quests.filter(q=>q.status==='active'&&q.title);
+  const done=D.quests.filter(q=>q.status==='complete'&&q.title);
+  el.innerHTML=`<div class="page-title">Quests</div><div class="page-sub">Active objectives and completed adventures.</div>`;
+  if(!active.length&&!done.length){el.innerHTML+='<div class="empty-state">No quests logged yet.</div>';return}
+  const qCard=(q,cls)=>`<div class="quest-card">
+    <div class="quest-header"><span class="quest-title">${q.title}</span><span class="q-status ${cls}">${q.status==='active'?'Active':'Complete'}</span></div>
+    ${q.giver?`<div style="font-size:0.8rem;color:var(--parch-dim);margin-bottom:4px">From: <em>${q.giver}</em></div>`:''}
+    ${q.reward?`<div style="font-size:0.82rem;color:var(--gold-hi);margin-bottom:6px">Reward: ${q.reward}</div>`:''}
+    ${q.body?`<div class="quest-body">${q.body}</div>`:''}</div>`;
+  if(active.length)el.innerHTML+=`<div class="dsec"><div class="lbl lbl-gold">Active</div>${active.map(q=>qCard(q,'q-active')).join('')}</div>`;
+  if(done.length)el.innerHTML+=`<div class="dsec" style="opacity:.6"><div class="lbl lbl-gold">Complete</div>${done.map(q=>qCard(q,'q-complete')).join('')}</div>`;
+}
+
+/* ══ LORE ══ */
+function renderLore(){
+  const el=document.getElementById('p-lore');
+  const cats=[{id:'history',l:'History'},{id:'religion',l:'Religion'},{id:'time',l:'Time & Calendar'}];
+  const items=D.lore.filter(l=>l.title);
+  el.innerHTML=`<div class="page-title">Lore</div><div class="page-sub">World history, religion, and the reckoning of time.</div>`;
+  if(!items.length){el.innerHTML+='<div class="empty-state">No lore entries yet.</div>';return}
+  cats.forEach(cat=>{
+    const entries=items.filter(l=>l.category===cat.id); if(!entries.length)return;
+    el.innerHTML+=`<div class="lore-section"><div class="lbl lbl-gold">${cat.l}</div><div class="chapter-list">${entries.map(e=>`
+      <div class="ch-card has" onclick="go('lore/${e.id}')"><span class="ch-title">${e.title}</span><span class="ch-arrow">→</span></div>`).join('')}</div></div>`;
+  });
+}
+function loreDetail(id){
+  const item=D.lore.find(l=>l.id===id); if(!item)return;
+  const el=document.getElementById('p-lore-detail');
+  el.innerHTML=`<div class="detail-back"><button class="back-btn" onclick="go('lore')">← Lore</button></div>
+    <div class="reading"><div class="reading-title">${item.title}</div><div class="gold-rule"></div>
+    ${item.body?`<div class="reading-body">${item.body}</div>`:'<div class="empty-state">Content coming soon.</div>'}
+    </div>`; show('p-lore-detail');
+}
+
+/* ══ PARTY ══ */
+function renderParty(){
+  const el=document.getElementById('p-party');
+  el.innerHTML=`<div class="page-title">The Party</div><div class="page-sub">Adventurers of the Azure Sea.</div><div class="party-grid" id="pg"></div>`;
+  const g=el.querySelector('#pg');
+  D.party.forEach(pc=>{
+    const has=!!pc.body; const c=document.createElement('div');
+    c.className='pc-card'+(has?' has':' empty');
+    c.innerHTML=`<div class="pc-init">${pc.name.charAt(0)}</div><div class="pc-name">${pc.name}</div>${pc.tagline?`<div class="pc-tagline">${pc.tagline}</div>`:''}`;
+    if(has)c.onclick=()=>go('party/'+pc.id); g.appendChild(c);
+  });
+}
+function partyDetail(id){
+  const pc=D.party.find(p=>p.id===id); if(!pc)return;
+  const el=document.getElementById('p-party-detail');
+  const hasStats=pc.stats&&Object.keys(pc.stats).length>0;
+  const hasTraits=pc.traits&&pc.traits.length>0;
+  const hasGoals=pc.goals&&(pc.goals.short||pc.goals.long);
+  const hasAdv=pc.adversaries&&pc.adversaries.length>0;
+  const hasSpheres=pc.spheres&&(pc.spheres.major||pc.spheres.minor);
+
+  el.innerHTML=`
+    <div class="detail-back"><button class="back-btn" onclick="go('party')">← Party</button></div>
+    <div class="detail-hero">
+      <div class="pc-init" style="width:48px;height:48px;font-size:1.1rem;border-radius:50%">${pc.name.charAt(0)}</div>
+      <div>
+        <div class="detail-title">${pc.name}</div>
+        ${pc.tagline?`<div class="detail-meta">${pc.tagline}</div>`:''}
+      </div>
+    </div>
+    ${pc.quote?`<div class="char-quote">"${pc.quote}"</div>`:''}
+    <div class="char-sheet">
+      <div>
+        ${hasStats?`<div class="dsec"><div class="lbl lbl-gold">Character</div>
+          <div class="stat-grid">${Object.entries(pc.stats).map(([k,v])=>`<div class="stat-row"><span class="stat-k">${k}</span><span class="stat-v">${v}</span></div>`).join('')}</div>
+        </div>`:''}
+        ${hasSpheres?`<div class="dsec"><div class="lbl lbl-gold">Spheres</div>
+          ${pc.spheres.major?`<div class="sphere-row"><span class="sphere-k">Major</span>${pc.spheres.major}</div>`:''}
+          ${pc.spheres.minor?`<div class="sphere-row"><span class="sphere-k">Minor</span>${pc.spheres.minor}</div>`:''}
+        </div>`:''}
+        ${hasAdv?`<div class="dsec"><div class="lbl lbl-gold">Adversaries</div>${pc.adversaries.map(a=>`
+          <div class="adversary-card"><div class="adv-name">${a.name}</div><div class="adv-title">${a.title}</div><div class="adv-desc">${a.desc}</div></div>`).join('')}
+        </div>`:''}
+      </div>
+      <div>
+        ${hasTraits?`<div class="dsec"><div class="lbl lbl-gold">Traits</div>${pc.traits.map(t=>`
+          <div class="trait-item"><div class="trait-name">${t.name}</div><div class="trait-desc">${t.desc}</div></div>`).join('')}
+        </div>`:''}
+        ${hasGoals?`<div class="dsec"><div class="lbl lbl-gold">Goals</div>
+          ${pc.goals.short&&pc.goals.short.length?`<div style="font-family:var(--display);font-size:0.62rem;color:var(--gold-dim);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px">Short-Term</div>${pc.goals.short.map(g=>`<div class="goal-item">${g}</div>`).join('')}`:''}
+          ${pc.goals.long&&pc.goals.long.length?`<div style="font-family:var(--display);font-size:0.62rem;color:var(--gold-dim);letter-spacing:0.1em;text-transform:uppercase;margin:10px 0 6px">Long-Term</div>${pc.goals.long.map(g=>`<div class="goal-item">${g}</div>`).join('')}`:''}
+        </div>`:''}
+      </div>
+    </div>
+    ${pc.body?`<div class="dsec" style="margin-top:1.5rem"><div class="lbl lbl-blue">Background</div><div class="reading-body" style="font-size:1rem;line-height:1.9">${pc.body}</div></div>`:''}`;
+  document.title=pc.name+' — '+D.campaign.name; show('p-party-detail');
+}
+
+/* ══ NOTES PARSER ══ */
+function parseNotes(raw){
+  if(!raw)return'';
+  const lines=raw.split('\n'); let html=''; let inP=false;
+  lines.forEach(line=>{
+    const t=line.trim();
+    if(!t){if(inP){html+='</div>';inP=false}return}
+    if(/^──.+──$/.test(t)){if(inP){html+='</div>';inP=false}html+=`<span class="nh">${t.replace(/^──\s*/,'').replace(/\s*──$/,'')}</span>`;return}
+    const di=t.indexOf(' — ');
+    if(di>0&&/[\d+]/.test(t.slice(di+3))){
+      if(!inP){html+='<div class="pblock">';inP=true}
+      html+=`<div class="pr"><span class="prn">${t.slice(0,di)}</span><span class="prv">${t.slice(di+3)}</span></div>`;return;
+    }
+    if(inP){html+='</div>';inP=false}
+    if(/^\s{2,}/.test(line)){html+=`<div class="ni">${t}</div>`;return}
+    html+=`<p>${t}</p>`;
+  });
+  if(inP)html+='</div>';
+  return html;
+}
+
+init();
+</script>
+</body>
+</html>
