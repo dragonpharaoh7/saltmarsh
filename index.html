@@ -411,12 +411,12 @@ function renderQuests(){
   el.innerHTML=`<div class="page-title">Quests</div><div class="page-sub">Active objectives and completed adventures.</div>`;
   if(!active.length&&!done.length){el.innerHTML+='<div class="empty-state">No quests logged yet.</div>';return}
   const qCard=(q,cls)=>`<div class="quest-card">
-    <div class="quest-header"><span class="quest-title">${q.title}</span><span class="q-status ${cls}">${q.status==='active'?'Active':'Complete'}</span></div>
+    <div class="quest-header"><span class="quest-title">${q.title}</span><span class="q-status ${cls}">${q.status==='active'?'Active':'Hold':'Complete'}</span></div>
     ${q.giver?`<div style="font-size:0.8rem;color:var(--parch-dim);margin-bottom:4px">From: <em>${q.giver}</em></div>`:''}
     ${q.reward?`<div style="font-size:0.82rem;color:var(--gold-hi);margin-bottom:6px">Reward: ${q.reward}</div>`:''}
     ${q.body?`<div class="quest-body">${q.body}</div>`:''}</div>`;
   if(active.length)el.innerHTML+=`<div class="dsec"><div class="lbl lbl-gold">Active</div>${active.map(q=>qCard(q,'q-active')).join('')}</div>`;
-  if(hold.length)el.innerHTML+=`<div class="dsec"><div class="lbl lbl-gold">Active</div>${hold.map(q=>qCard(q,'q-hold')).join('')}</div>`;
+  if(hold.length)el.innerHTML+=`<div class="dsec"><div class="lbl lbl-gold">Hold</div>${hold.map(q=>qCard(q,'q-hold')).join('')}</div>`;
   if(done.length)el.innerHTML+=`<div class="dsec" style="opacity:.6"><div class="lbl lbl-gold">Complete</div>${done.map(q=>qCard(q,'q-complete')).join('')}</div>`;
 }
 
