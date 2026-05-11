@@ -248,21 +248,99 @@
   },
   {
     "id": "feanor",
-    "name": "Feanor",
+    "name": "Feanor of Dreadwood",
     "player": "feanor-r1",
-    "tagline": "",
-    "stats": {},
-    "quote": "",
-    "spheres": {},
-    "traits": [],
-    "goals": {
-      "short": [],
-      "long": []
+    "tagline": "Warden of the Dreadwood · Shadow's Equal",
+    "stats": {
+      "race": "High Elf",
+      "class": "Ranger",
+      "alignment": "Neutral",
+      "age": "120",
+      "height": "5'3\"",
+      "weight": "105 lbs",
+      "armor": "Hide Armor",
+      "weapons": "Shortbow, Shortsword",
+      "origin": "Dreadwood / Saltmarsh"
     },
-    "adversaries": [],
-    "body": "",
-    "portrait": "",
-    "art": []
+    "quote": "In the Dreadwood, the wind does not forget. Neither do I.",
+    "spheres": {},
+    "traits": [
+      {
+        "name": "Quietly Observant",
+        "desc": "Speaks little, but notices everything — changes in the wind, nervous glances, footprints where none should be."
+      },
+      {
+        "name": "Measured Precision",
+        "desc": "Dislikes waste, whether of words, arrows, or lives. Every shot has intent."
+      },
+      {
+        "name": "Warden's Instinct",
+        "desc": "Instinctively places himself between danger and others, even when it costs him."
+      },
+      {
+        "name": "Elven Reserve",
+        "desc": "Polite but distant with most humans; more at ease in the wilds or among elves."
+      },
+      {
+        "name": "Unyielding Focus",
+        "desc": "Once he sets his sights on a target — be it prey, truth, or enemy — he does not abandon it."
+      },
+      {
+        "name": "Hidden Curiosity",
+        "desc": "Despite his stoic exterior, deeply curious about ancient elven lore and forgotten magic, especially anything tied to Celene or elemental corruption."
+      }
+    ],
+    "goals": {
+      "short": [
+        "Identify the midnight-feathered archer haunting the wilds around Saltmarsh.",
+        "Prevent smugglers and cultists from using the Dreadwood and Hool Marshes as hidden routes.",
+        "Discover who is marking the land with the Eye in the Flame and why."
+      ],
+      "long": [
+        "Expose and destroy any resurgence of the Temple of Elemental Evil or its splinter cults.",
+        "Uncover his mother's true past in Celene, and why she fled.",
+        "Establish a permanent ranger watch over the Dreadwood to protect Saltmarsh.",
+        "One day craft or earn a legendary bow worthy of elven tradition — possibly one tied to ancient Greyhawk lore."
+      ]
+    },
+    "adversaries": [
+      {
+        "name": "The Midnight Archer",
+        "title": "Unknown Rival",
+        "desc": "A master bowman using midnight-blue fletching. Their motives are unclear — sometimes opposing smugglers, sometimes interfering with patrols. They may be testing him... or grooming him for something darker."
+      },
+      {
+        "name": "Elemental Cult Remnants",
+        "title": "Temple of Elemental Evil Cells",
+        "desc": "Hidden cells operating along the coast and marshes. They mark territory with subtle sigils — the Eye in the Flame — and use hired muscle when secrecy fails."
+      },
+      {
+        "name": "Saltmarsh Smuggler Rings",
+        "title": "Criminal Networks",
+        "desc": "Running illicit goods through the marshes and forest paths. He has ruined shipments — and livelihoods. They remember."
+      },
+      {
+        "name": "Lizardfolk Scouts of Dunwater",
+        "title": "Wary Neighbors",
+        "desc": "Not openly hostile, but deeply suspicious of surface folk. Some see him as a recurring threat to their territory."
+      },
+      {
+        "name": "An Elven Agent of Celene",
+        "title": "Political Operative",
+        "desc": "A quiet watcher, uncertain whether Feanor is an asset or a liability tied to his mother's past. Has not yet acted."
+      }
+    ],
+    "body": "I was born beneath the boughs of the Dreadwood, though my blood runs pure from the high towers of Celene. My mother left that distant elven kingdom long before I was born — she sought a quieter life, or so she said. She never spoke much about why she truly fled Celene's courts, but I learned early that even the most graceful folk can carry shadows in their hearts. She raised me among the wardens of the Dreadwood, teaching me the art of the bow before I could steady my own breath.\n\nMy father was a man of Saltmarsh, a hunter who sold furs and smoked fish by the docks. He had no elven grace, no ancient wisdom, but he taught me how to survive among people — to judge a man by his hands and his eyes, not his words. Between him and my mother, I learned to move like a whisper and to shoot like a striking hawk.\n\nI joined the forest wardens as soon as I was old enough. The Dreadwood is a place that swallows the unprepared — lizardfolk raiders, smugglers, and marsh-creatures test its borders daily. I thought I understood its dangers. I was wrong.\n\nOne morning, I followed a trail of broken branches to a clearing where I found arrows — fine arrows — embedded in the old oaks. Long, elegant shafts of unfamiliar design. Each fletched with midnight-blue feathers. They were placed deliberately, almost like a challenge. And their marksmanship... they weren't meant to kill. They were meant to demonstrate skill. A message, aimed at me.\n\nNot long after, the rumors began. A ghostly archer striking from the shadows along the coast, driving off wardens, cutting smuggler lines, and sometimes leaving messages carved into driftwood. Some said it was an outlaw ranger. Others whispered it was a renegade elf from Celene — one with a grudge. My mother grew quiet when I asked her, and that silence told me more than any story.\n\nI've begun finding those midnight-feathered arrows closer to Saltmarsh now — near the mines, the marsh paths, even outside my father's old hut. Someone is hunting me. Or testing me. Or both.\n\nMeanwhile, darker things stir. I discovered the Eye in the Flame symbol — the same sigil tied to the old Temple of Elemental Evil — burned into a tree along the Dunwater River. Whatever force once threatened the world is waking, whispering from the marshes.\n\nSo now I walk between Saltmarsh and the wilds, bow always strung. People trust me enough to scout the borders, though their eyes linger too long on my pointed ears and my silence. I do not seek glory. I seek answers — about the cult rising again, and about the unseen archer whose skill rivals my own, whose arrows seem to guide me toward something inevitable.\n\nIf the darkness returns, I will face it. And if my phantom rival steps from the shadows, bow in hand, I will face them too. Whether they are meant to be my enemy... or my teacher.\n\nEither way, someone must walk the quiet paths and guard Saltmarsh from what creeps toward it.\n\nAnd it seems that someone is me.",
+    "portrait": "assets/feanor-portrait.png",
+    "art": [
+      "assets/feanor-sheet.png"
+    ],
+    "oath": [],
+    "roleplay_cue": "When tense, he unconsciously checks his bowstring or touches the fletching of his arrows.",
+    "treatise": null,
+    "artifact": null,
+    "deityCompass": null,
+    "journal": []
   },
   {
     "id": "thalion",
