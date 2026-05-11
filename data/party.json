@@ -85,21 +85,94 @@
   },
   {
     "id": "finrod",
-    "name": "Finrod",
+    "name": "Finrod Zilrich",
     "player": "finrod-ae1",
-    "tagline": "",
-    "stats": {},
-    "quote": "",
-    "spheres": {},
-    "traits": [],
-    "goals": {
-      "short": [],
-      "long": []
+    "tagline": "Seeker of the Astral Codex · Chosen of Atroa",
+    "stats": {
+      "race": "Human",
+      "class": "Mage (Air Elementalist)",
+      "alignment": "Neutral Good",
+      "height": "6'1\"",
+      "weight": "180 lbs",
+      "armor": "None (Mage Robes)",
+      "weapons": "Quarterstaff, Dagger",
+      "tools": "Spellbook, Arcane Focus",
+      "deity": "Atroa, Lady of Spring",
+      "symbol": "Atroa's Winds"
     },
-    "adversaries": [],
-    "body": "",
-    "portrait": "",
-    "art": []
+    "quote": "I do not chase the wind. I listen — and it teaches me where to go.",
+    "spheres": {},
+    "traits": [
+      {
+        "name": "Measured Optimist",
+        "desc": "Finrod believes renewal is always possible, even after catastrophe. He does not deny evil — he believes it can be outgrown."
+      },
+      {
+        "name": "Wind-Watcher",
+        "desc": "He unconsciously notes weather patterns and wind direction, often pausing mid-conversation to feel the air."
+      },
+      {
+        "name": "Scholar of Restraint",
+        "desc": "He refuses to cast destructive magic unless no other path remains."
+      },
+      {
+        "name": "Soft-Spoken Authority",
+        "desc": "Speaks calmly and precisely; when he raises his voice, people listen."
+      },
+      {
+        "name": "Inner Conflict",
+        "desc": "Torn between Suel curiosity and Atroa's doctrine of renewal; fears that understanding the Rain of Colorless Fire may awaken the same arrogance."
+      },
+      {
+        "name": "Superstitious Habit",
+        "desc": "Never opens an important book without first letting fresh air pass over its pages."
+      }
+    ],
+    "goals": {
+      "short": [
+        "Locate a verified fragment or transcription related to the Astral Codex.",
+        "Study pre-Imperium Suel magic to understand what magic looked like before hubris ruled it.",
+        "Aid communities harmed by arcane misuse, especially along the Solnor Coast."
+      ],
+      "long": [
+        "Prevent another arcane cataclysm like the Rain of Colorless Fire.",
+        "Decide whether the Astral Codex should be sealed, destroyed, or guarded.",
+        "Establish a small open library or tower dedicated to responsible magical study under Atroa's blessing."
+      ]
+    },
+    "adversaries": [
+      {
+        "name": "The Scarlet Brotherhood",
+        "title": "Suel Supremacist Faction",
+        "desc": "View Finrod as a heretic who rejects Suel destiny. Seek the Astral Codex to \"restore rightful dominion.\""
+      },
+      {
+        "name": "The Ashen Cabal",
+        "title": "Apocalyptic Mage Circle",
+        "desc": "A loose circle of mages who believe the Rain of Colorless Fire was necessary. Actively hunt artifacts tied to ancient apocalyptic magic."
+      },
+      {
+        "name": "Velkyn Thrice-Bound",
+        "title": "Rival Scholar of Greyhawk City",
+        "desc": "An amoral wizard who believes Finrod lacks the will to use true power. Wants the Codex for himself — and has no hesitation about what he'd do with it."
+      }
+    ],
+    "body": "I was born in Rel Astra, where the eastern winds off the Solnor Coast carry both promise and ruin. My family name, Zilrich, once carried weight among the lesser Suel-descended houses — not greatness, but expectation. What remains now are shuttered halls, cracked towers, and spellbooks so old they smell of salt and dust. I grew up among relics of a people who believed themselves eternal, and I learned early how wrong they were.\n\nAs a child, I often climbed to the highest remaining balcony of our ancestral home to feel the wind. My mother told me Atroa rode those currents — the Lady of Spring, who carries endings away and brings beginnings in their wake. Even then, I felt the truth of it. The wind did not care for our fallen pride; it moved forward regardless. That lesson stayed with me longer than any nursery prayer.\n\nMy first spellbook was not gifted, but discovered — wedged behind a collapsed shelf, its sigils faded but alive. When I traced them, the air stirred. The breeze answered. That was the moment I knew magic was not domination, but conversation. Power did not come from command, but from understanding the rhythms of the world.\n\nI studied under Sareth Morn, a wandering scholar who respected all gods but served none blindly. He taught me discipline and restraint, yet it was Atroa who guided my heart. Where others sought to reclaim Suel supremacy, I sought renewal — proof that even from ruin, something wiser could grow.\n\nIn the Great Library of Greyhawk, I found my purpose sharpened into obsession. Among half-crumbled scrolls and disputed marginalia, I uncovered references to the Astral Codex — a spellbook said to contain the final workings of Xodast, a Suel archmage who lived long enough to witness the Rain of Colorless Fire. The Codex is said to hold memory as much as magic — the moment of destruction, preserved like a seed locked in crystal.\n\nThat thought terrifies me.\n\nI have followed rumors across the Cairn Hills, into the Abbor-Alz, and along the wind-scoured edges of the Bright Desert. Everywhere I go, I see the same truth repeated: civilizations fall, but the world endures. Atroa's winds still blow across shattered empires. Spring still comes.\n\nI tell myself I seek the Codex to understand — to learn how arrogance turns knowledge into catastrophe. Yet I fear what it might awaken in me. I am Suel by blood, and no prayer can wholly cleanse that legacy. Still, Atroa teaches that stagnation is death, and that renewal requires movement, even into danger.\n\nSo I travel, staff in hand, hourglass at my belt, watching the wind and listening for its guidance. If I find the Astral Codex, I will not use it to reclaim what was lost. I will use it to ensure that when the world stands on the brink again, someone remembers how easily fire can fall from the sky.\n\nAnd when the east wind rises, I follow.",
+    "portrait": "assets/finrod-portrait.png",
+    "art": [
+      "assets/finrod-sheet.png"
+    ],
+    "oath": [],
+    "artifact": {
+      "name": "The Astral Codex",
+      "image": "assets/astral-codex.png",
+      "desc": "A spellbook said to contain the final workings of Xodast, a Suel archmage who lived long enough to witness the Rain of Colorless Fire. The Codex is said to hold memory as much as magic — the moment of destruction, preserved like a seed locked in crystal.",
+      "status": "Sought — last rumored near the Cairn Hills",
+      "warning": "That thought terrifies me."
+    },
+    "treatise": null,
+    "deityCompass": null,
+    "journal": []
   },
   {
     "id": "feanor",
