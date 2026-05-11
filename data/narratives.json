@@ -1,0 +1,10 @@
+[
+  { "id": "prologue-cirdan-finrod",    "title": "Prologue — Cirdan & Finrod",    "order": 1, "body": "" },
+  { "id": "prologue-feanor-thalion",   "title": "Prologue — Feanor & Thalion",   "order": 2, "body": "" },
+  { "id": "prologue-alanis-zaphod",    "title": "Prologue — Alanis & Zaphod",    "order": 3, "body": "" },
+  { "id": "opening-scene",             "title": "Opening Scene",                 "order": 4, "body": "" },
+  { "id": "post-battle-opening",       "title": "Post-Battle Opening",           "order": 5, "body": "" },
+  { "id": "the-road-to-saltmarsh",     "title": "The Road to Saltmarsh",         "order": 6, "body": "" },
+  { "id": "post-battle-giant-ants",    "title": "Post-Battle — Giant Ants",      "order": 7, "body": "" },
+  { "id": "arrival-at-the-wicker-goat","title": "Arrival at the Wicker Goat",    "order": 8, "body": "" }
+]

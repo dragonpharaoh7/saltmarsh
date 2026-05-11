@@ -1,0 +1,288 @@
+[
+  {
+    "id": 1,
+    "name": "City Gate",
+    "category": "civic",
+    "meta": "Town entrance · Old crumbling wall",
+    "description": "Saltmarsh was built on ruins sometimes called Old Saltmarsh. The crumbling wall and single gate are secured by two or three older guards nearing retirement. Sharp-eyed and prone to gossip, these veterans make up the garrison.",
+    "npcs": [
+      "Garrison guards (older, retired-track soldiers)"
+    ],
+    "notes": "Saltmarsh doesn't welcome travelers so much as it sizes them up.\n\nThe City Gate is a lone, stubborn remnant of Old Saltmarsh / the Old Harbor — a short run of ancient wall and a single arched gatehouse that looks like it has been losing a slow argument with sea-wind for centuries. The stone is salt-bitten and pocked like old bone; mortar has been patched so many times it resembles scar tissue. In places, the wall leans just enough to make newcomers wonder if today is the day it finally gives up.\n\nThe Azure Sea is never far here. Even inland, the air is damp and briny, and the gate smells of wet rock, old iron, and fish-salt carried on every gust.\n\n── WHAT IT LOOKS LIKE ──\n\nThe Wall: Only a modest stretch remains — long enough to feel symbolic rather than defensive. The top is jagged where stones have fallen away, and the remaining crenellations are uneven, like broken teeth. Sea-moss and pale lichen cling wherever they can.\n\nThe Gate: A heavy timber gate reinforced with iron straps that are perpetually rust-streaked. It can be barred properly... but the bar is so warped it takes two people and a grumbled prayer to seat it.\n\nThe Gatehouse: A squat stone box with a sagging slate roof and a small upper loft. A narrow arrow-slit window overlooks the road; most of the time, someone is sitting behind it with a mug of something warm and a sharp eye.\n\nThe Yard: Inside the gate is a hard-packed patch of ground marked by wagon ruts, a post for notices, and a low stone block used as an unofficial bench (and a very official place to set down \"inspection goods\").\n\nOld Harbor Relics: If you look closely, some stones bear worn carvings — rope knots, wave-marks, and half-erased names that predate the current town by lifetimes.",
+    "tags": [
+      "visited"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "The Wicker Goat",
+    "category": "tavern",
+    "meta": "Tavern & Inn · Oldest in town",
+    "description": "The oldest tavern in Saltmarsh, owned by a retired Keoish army officer. Caters to dwarven miners and the town guard. Two-story with sleeping quarters on the upper floor, accommodating travelers passing through.",
+    "npcs": [
+      "Lankus Kurrid (owner, human, retired Keoish officer)"
+    ],
+    "notes": "── LANKUS KURRID ──\n\nLankus carries the quiet authority of someone who has seen every kind of traveler pass through his doors and learned which ones matter. He is broad-shouldered and steady, his movements efficient rather than hurried. His beard, threaded with iron gray, is trimmed short so it never interferes with work, and his forearms bear old burns, small scars, and rope marks that speak of a life before the bar.\n\nHis clothing is practical: heavy shirt, worn apron, sleeves rolled no matter the season. Nothing ornamental, nothing wasted. A cloth is almost always in one hand, polishing a mug more out of habit than necessity.\n\nHis eyes are the part people remember. Not hard. Not soft. Accounting. He watches the way groups move, who protects whom, who carries the coin, who carries the trouble.\n\nLankus does not ask questions first. He provides space, food, and a chance to decide what kind of story you are bringing into his inn. But when he does speak, it's usually because he already knows the answer.\n\n── LODGING (Upper floor, thick doors, thin mattresses) ──\n\nCommon Room Straw Mattress — 2 sp/night\nPrivate Room — 5 sp/night\nDouble Room — 1 gp/night\nWeekly Rate (Private) — 3 gp\n\n── PUBLIC NOTICES (Posted near the stairs) ──\n\nRemove a notice and Lankus will glare until you explain yourself.\n\nTOWN GUARD RECRUITMENT — Captain Eda Shore, Saltmarsh Watch\nAble-bodied folk sought for temporary patrol duty along the marsh road. Report at dawn to the east barracks.\nPay: 4 sp/day + rations. (If the PCs have guard credentials or good reputations: 5 sp/day.)\n\nMINERS WANTED\nStonecutters and delvers needed for reopened shafts two miles inland. Hazard pay negotiable. Ask for Harl Blackpick (dwarf) at the Wicker Goat after sundown.\nBase Pay: 3 sp/day. Hazard Bonus (below the waterline / deep shifts): +2 sp/day. If paid per haul: 1 sp per 10 lb of usable ore delivered intact.\n\nMISSING CARGO\nThree crates of salted eel never reached the docks from Crabber's Cove. Likely theft. Possibly worse. Speak to Neris Holt, fishmonger.\nReward: 5 gp for recovery of all three crates. Partial: 1 gp per crate returned, +2 gp bonus if the thieves are identified.\n\nMARSH LIGHTS\nStrange lantern-glows seen drifting in the Hool edge at night. Two guards sent to investigate did not return. Captain Shore requests discreet inquiries.\nTown Reward: 10 gp total if both guards are found (alive or bodies recovered). Extra: +5 gp if evidence explains what happened.\n\nREWARD — STOLEN GOAT\nOne white billy goat, answers to \"Knucklebones.\" Stubborn. Mean-tempered. Contact Old Myra at Net Street.\nReward: 1 gp (alive). Consolation: 2 sp for proof of what happened (pelt/horns or a reliable witness).\n\nSHIP GUARDS NEEDED\nMerchant sloop Bright Gull sailing north in three days. Seeking four armed escorts. Ask for Bosun Kreeg at the docks.\nPay: 8 gp each on safe arrival. Plus: 1 gp advance (to buy supplies). Danger Clause: If attacked and the ship survives: +2 gp each bonus.\n\nPRIVATE MATTER\nDiscreet swords for a delicate recovery. No questions asked. Inquire quietly of \"Mr. Fen\" at the bar. (The handwriting is careful. Too careful.)\nOffer: 25 gp for return of the item intact. Bonus: +10 gp if done quietly and within 48 hours. Warning: If the PCs talk publicly about it, payment drops to 10 gp.\n\nREWARD FOR BOOK\nArcane text lost near the old road east — blue leather cover, silver clasp. Return for coin. —F.Z.\nReward: 15 gp for the book returned undamaged. If damaged: 5 gp (and a very cold conversation).\n\nDO NOT GO INTO SHAFT SEVEN\n(This scrap is scrawled in charcoal and half torn down.)\n\"...they're still moving down there...\"\n\"...don't listen to the scratching...\"\nNo coin listed — but if the PCs ask around: Miners will pool 2d10 sp for anyone who \"puts the noise down\" for a week. A foreman might privately offer 5 gp to seal it properly and keep it quiet.\n\nMESSAGE FROM LANKUS\nNo spellcasting in common room.\nNo blade-drawing unless you mean it.\nNo running tabs past two weeks.\n—L.K.",
+    "tags": [
+      "visited",
+      "quest hooks"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Barracks & Jail",
+    "category": "civic",
+    "meta": "Guard post · Underground cells",
+    "description": "Built on a low hill with an underground level. The cellar holds a large chamber for short-term troublemakers and six individual cells with quality locks for those serving sentences up to a year. Longer terms are transferred to the prison at Seaton.",
+    "npcs": [
+      "Kraddok Stonehorn (jailer, human)"
+    ],
+    "notes": "",
+    "tags": []
+  },
+  {
+    "id": 4,
+    "name": "Eliander Fireborn's House",
+    "category": "civic",
+    "meta": "Commander's residence · Library",
+    "description": "Eliander's seaside sanctuary, tucked at the edge of town overlooking the sea. Houses the largest library in Saltmarsh — rare books collected during his days of military service. Krag the gravedigger keeps a room here as well.",
+    "npcs": [
+      "Eliander Fireborn (leader of town watch, human)",
+      "Krag (resident, half-orc)"
+    ],
+    "notes": "",
+    "tags": []
+  },
+  {
+    "id": 5,
+    "name": "Kester's Leather Goods",
+    "category": "trade",
+    "meta": "Tannery · Exotic hides wanted",
+    "description": "A busy tannery producing smooth, colorful leather for all purposes. Kiorna sells cured hides and fashioned leather goods. She is keenly interested in acquiring hides from exotic creatures to craft expensive leather.",
+    "npcs": [
+      "Kiorna Kester (owner, human)"
+    ],
+    "notes": "",
+    "tags": []
+  },
+  {
+    "id": 6,
+    "name": "The Snapping Line",
+    "category": "tavern",
+    "meta": "Inn & Tavern · Built from old ships",
+    "description": "Built from planks and hulls of decommissioned fishing ships. Nautical decor throughout; the smell of fish is permanent. Popular with sailors and fishers. Famous for 'claw wine' — a spirit made from lobster meat and potatoes. An acquired taste.",
+    "npcs": [
+      "Hanna Rist (owner, human)",
+      "Rist family (lobster catchers, claw wine makers)"
+    ],
+    "notes": "",
+    "tags": []
+  },
+  {
+    "id": 7,
+    "name": "Hoolwatch Tower",
+    "category": "civic",
+    "meta": "60-ft tower · Guard HQ · Job board",
+    "description": "The first defensive building of Saltmarsh, standing 60 feet tall. Serves as armory, lookout, and official base of the town guard. Eliander works here most days. A job board by the entrance posts opportunities for adventurers.",
+    "npcs": [
+      "Eliander Fireborn (commander)"
+    ],
+    "notes": "",
+    "tags": []
+  },
+  {
+    "id": 8,
+    "name": "Council Hall",
+    "category": "civic",
+    "meta": "Town government · Gallows platform",
+    "description": "Large brick building of stone and hardwood from the Hool Marshes. The council meets here to conduct town business. A horn at the top announces sessions and major events. A sturdy weatherbeaten gallows stands in front — rarely used, but draws a crowd when it is.",
+    "npcs": [],
+    "notes": "",
+    "tags": []
+  },
+  {
+    "id": 9,
+    "name": "Empty Net",
+    "category": "tavern",
+    "meta": "Dockside tavern · No questions asked",
+    "description": "Partially supported by stilts over the harbor. Purportedly a haven for smugglers, mercenaries, assassins, and pirates. The owner takes coin from anyone and asks nothing. Troublemakers are thrown over the railing into the harbor. The town guard only comes if called.",
+    "npcs": [
+      "Kreb Shenker (owner, human)"
+    ],
+    "notes": "",
+    "tags": []
+  },
+  {
+    "id": 10,
+    "name": "Weekly Market",
+    "category": "trade",
+    "meta": "Opens every first day of the week",
+    "description": "Built around the first well ever dug in Saltmarsh. A large market square where merchants gather weekly. Originally just fish, now a wide variety of goods. A dozen long communal tables sit at the center for shoppers to eat together.",
+    "npcs": [],
+    "notes": "",
+    "tags": []
+  },
+  {
+    "id": 11,
+    "name": "Fishmongers' Plants",
+    "category": "docks",
+    "meta": "Fish processing · Salting & brining",
+    "description": "Large fish-processing buildings that reek of prosperity — and fish. All engaged in salting or brining the fleet's catch. Workers are constantly busy with little time for chatter.",
+    "npcs": [],
+    "notes": "",
+    "tags": []
+  },
+  {
+    "id": 12,
+    "name": "Primewater Mansion",
+    "category": "docks",
+    "meta": "Merchant mansion · Weekly feasts",
+    "description": "The most prominent merchant in Saltmarsh, Gellan keeps his mansion right on the docks to oversee his ships. He hosts extravagant weekly feasts with food from distant ports. His gnome cook Feliza sometimes hires adventurers to source rare ingredients.",
+    "npcs": [
+      "Gellan Primewater (prominent merchant)",
+      "Feliza (cook, gnome)"
+    ],
+    "notes": "",
+    "tags": []
+  },
+  {
+    "id": 13,
+    "name": "The Dwarven Anvil",
+    "category": "trade",
+    "meta": "Blacksmith · Dwarven origin anvil",
+    "description": "A blacksmith's forge with a single anvil of clear dwarven origin and a backlog ten miles long. Produces hooks, nails, harpoons, knives, and fishing weights. A small, somewhat neglected shrine to Moradin sits under the eaves.",
+    "npcs": [
+      "Mafera (master smith, human)",
+      "Jasker (journeyman, her son, human)"
+    ],
+    "notes": "",
+    "tags": []
+  },
+  {
+    "id": 14,
+    "name": "Mariners' Guildhall",
+    "category": "docks",
+    "meta": "Guild · Sailor services & coastal news",
+    "description": "Serves coastal towns along the sea. Provides bunks and meals for passing sailors. A hub for sea captains recruiting crew, and travelers seeking news from afar. Excellent source of information on seafaring and coastal threats.",
+    "npcs": [],
+    "notes": "",
+    "tags": []
+  },
+  {
+    "id": 15,
+    "name": "Oweland House",
+    "category": "civic",
+    "meta": "Sprawling family estate · Charitable",
+    "description": "Owned by the Oweland family for generations. A sprawling collection of new construction and additions — each generation has expanded the mansion. Despite their wealth, the family takes in fishers who have fallen on hard times, sharing prosperity until they recover.",
+    "npcs": [
+      "Oweland family (generational wealth)"
+    ],
+    "notes": "",
+    "tags": []
+  },
+  {
+    "id": 16,
+    "name": "Solmor House",
+    "category": "civic",
+    "meta": "Family complex · Trading fleet",
+    "description": "The Solmor family owns several buildings in a modest complex. The main building is the family mansion. Three smaller buildings house servants, trading fleet employees, and secure storage for valuable goods.",
+    "npcs": [
+      "Solmor family (trading fleet owners)"
+    ],
+    "notes": "",
+    "tags": []
+  },
+  {
+    "id": 17,
+    "name": "Winston's Store",
+    "category": "trade",
+    "meta": "General store · Marsh maps & guides",
+    "description": "Run by a retired rogue with extensive knowledge of the Hool Marshes. Serves sailors, adventurers, and locals with 'solid goods at honest prices.' Winston has maps of the marshes and is a valuable guide for those planning to explore the region.",
+    "npcs": [
+      "Winston (owner, halfling, retired rogue)"
+    ],
+    "notes": "── PACKS, STORAGE & TRAVEL ──\nBackpack — 2 gp\nBelt pouch — 1 gp\nSack (small) — 1 cp\nSack (large/burlap) — 2 cp\nWaterskin — 1 gp\nBedroll — 1 sp\nBlanket (wool) — 5 sp\nCloak (common) — 1 gp\nTarp / canvas (small) — 2 gp\nOilcloth wrap (for books/maps) — 5 sp\nSewing kit (needle/thread/patches) — 5 sp\n\n── ROPE, TOOLS & HARDWARE ──\nRope, hemp 50 ft — 1 gp\nRope, silk 50 ft — 10 gp\nGrappling hook — 2 gp\nHammer — 5 sp\nIron spikes (12) — 1 gp\nCrowbar — 2 gp\nChalk (10 pieces) — 1 sp\nSmall mirror (steel) — 5 gp\n\n── LIGHT, FIRE & SIGNALING ──\nTinderbox — 1 gp\nTorches (6) — 1 sp\nLantern, hooded — 7 gp\nLamp, oil — 1 sp\nOil (1 pint) — 1 sp\nCandles (12) — 1 sp\nSignal whistle — 8 cp\n\n── FOOD & FIELD SUPPLIES ──\nRations, standard (1 week) — 5 sp\nRations, iron (1 week) — 5 gp\nSmall cask / flask — 3 cp\nSoap (hard lye bar) — 2 sp\nBandages (cloth roll) — 2 sp\nStrong spirits (for cleaning wounds, 1 flask) — 2 sp\n\n── NAVIGATION & SWAMP SURVIVAL ──\nCompass (brass, reliable) — 10 gp\nMosquito veil (fine mesh hood) — 2 gp\nLeech-salve tin (3 applications) — 3 gp\nInsect repellent (tar-and-herb paste, 5 applications) — 2 gp\nWading pole (ashwood, iron tip) — 1 gp\n\"Bog shoes\" (strap-on swamp pads) — 6 gp\nSourwater filter tube (10 uses) — 5 gp\nMarsh marker flags (12, colored cloth on twine) — 1 gp\nScent-masking sachets (6; mint/bitterroot) — 4 gp\nWaterproof map case (leather tube, cork seal) — 3 gp\nFloating rope (25 ft; treated line) — 8 gp\n\"Quiet kit\" (cloth wraps, soft ties, muffling strips) — 1 gp\n\n── MAPS OF THE HOOL MARSHES ──\nRough sketch map (single landmark chain; incomplete) — 5 gp\nWorking map (routes, camps, warnings) — 25 gp\n\"Winston's personal copy\" (rental) — 10 gp/day + 50 gp deposit\n\n── SERVICES ──\nQuick route consult (10-15 min) — 2 gp\nFull expedition consult (30-45 min) — 10 gp\n\"Rumor swap\" credit — 1d4 gp store credit for useful marsh intel (DM decides)",
+    "tags": [
+      "shop"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Carpenters' Guildhall",
+    "category": "trade",
+    "meta": "Guild · Built without a single nail · \"The Quiet Clack\"",
+    "description": "The building itself is a marvel — constructed without a single nail. Plenty of work building houses, barrels, and repairing docks. Jilar is obsessed with rare woods and pays adventurers to find specific trees in the Hool Marshes, Drowned Forest, and Dreadwood.",
+    "npcs": [
+      "Jilar Kanklesten (guildmaster, gnome)"
+    ],
+    "notes": "── ARRIVAL ──\n\nThe Guildhall smells of clean-cut pine and warm oil, even here in salty Saltmarsh. Sunlight slides across a porch of seamless arches, every beam locked to the next as if grown that way. Inside, the air is alive with the soft music of craft — planes whispering, mallets tapping, pegs seating with a satisfied clack. Behind a spotless desk, a gnome in polished cuffs looks up as though you've interrupted something important... and in a way, you have.\n\nLocals call it \"The Quiet Clack\" — because the loudest sounds are mallets, wooden pegs, and the rhythmic tap-tap of chisels.\n\n── JILAR KANKLESTEN ──\n\nJilar is a gnome with immaculate cuffs, polished boots, and a tone that suggests she's doing you a favor by allowing you to breathe the same air.\n\n── INTERIOR ──\n\n1. Front Office & Contract Board: A tidy lobby with a slate board listing jobs: dock repairs, house frames, barrel orders, boat skiff ribs, and \"emergency bracing\" after storms. A locked glass case shows exquisite miniatures — a jointed truss, a peg-lock hinge, a folding ladder.\n\n2. The Great Floor (Main Workshop): Long benches, vices, clamps, and racks of planes and chisels hung with obsessive symmetry. A barrel line where apprentices assemble fish barrels in rapid rhythm. A \"dry wall\" of stacked planks, each stamped with origin and date (and a few mysterious stamps nobody recognizes).\n\n── SERVICES & CONTRACTS ──\n\nCommon labor contract — 1–3 gp (simple hauling) / 5–15 gp (skilled assistance)\nDock repair escort (1–2 days) — 25 gp + meals\nProof of rare wood location (leaf/bark sample) — 50 gp\nUsable cut timber (small haul) — 100–250 gp depending on rarity\nLiving sapling / intact rootball — 300+ gp (and Jilar becomes uncharacteristically polite)",
+    "tags": [
+      "shop"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Green Market",
+    "category": "trade",
+    "meta": "Non-fish market · Livestock & goods",
+    "description": "A strip of open land for everything that isn't fish, salt, or nautical wares. About a dozen stalls stretching to the bridge. Goats, eggs, cloth, marsh plants, and pots are available, as well as the occasional mule or ox.",
+    "npcs": [],
+    "notes": "",
+    "tags": []
+  },
+  {
+    "id": 20,
+    "name": "Saltmarsh Cemetery",
+    "category": "landmark",
+    "meta": "Cemetery · Town loremaster",
+    "description": "Well-kept, though many graves are memorial stones for those lost at sea. The gravedigger Krag is also a town historian and loremaster with deep research into local history. He helps organize Eliander's library in his spare time and is the commander's close friend.",
+    "npcs": [
+      "Krag (gravedigger & loremaster, half-orc)"
+    ],
+    "notes": "The cemetery of Saltmarsh is modest but meticulously kept. A low stone wall — older than many buildings in town — marks its boundary. Beyond it stand rows of simple headstones, driftwood markers, and carved memorial slabs depicting ships under full sail. Nearly half the stones mark no body at all — only names for those claimed by the Azure Sea.\n\nSmall votive candles often burn at dusk, placed by widows, dockhands, or children who never knew the dead whose names they trace with careful fingers.\n\nThe wind never quite stops here.\n\n── NOTABLE FEATURES ──\n\n1. The Memorial Field: A section of graves holds only carved stones — no bodies beneath them. Many are etched with sailing vessels in relief, knotted rope motifs, shell and wave designs, and family crests of fisher clans.\n\n2. The Old Stone Marker: Near the center stands a weather-worn obelisk older than Saltmarsh itself — likely dating back to Old Harbor. Its runes are partially eroded.\n\n3. The Angel of Lost Sailors: A stone statue of a winged mourner holding a lantern stands facing the sea. Offerings — shells, coins, bits of rope — collect at its base.\n\n4. The Gravedigger's Shed: Krag's workspace at the edge of the grounds.",
+    "tags": []
+  },
+  {
+    "id": 21,
+    "name": "Sea Grove of Obad-Hai",
+    "category": "landmark",
+    "meta": "Open-air shrine · Information market",
+    "description": "An open-air grove outside town, gathering place for seagulls, sailors, and swamp folk. Serves as an information market for traders and trappers. Tended by the somewhat melancholy Ferrin and his bullfrog Lorys.",
+    "npcs": [
+      "Ferrin Kastilar (tender, halfling)",
+      "Lorys (bullfrog companion)"
+    ],
+    "notes": "",
+    "tags": []
+  },
+  {
+    "id": 22,
+    "name": "Standing Stones",
+    "category": "landmark",
+    "meta": "Ancient runestones · Siren's spirit",
+    "description": "Two enormous runestones on an island. An evil human tribe once sacrificed a siren here as an offering to the sea. Since then, fishing in the region has flourished. The siren's spirit was captured in the stones; her captivating song still draws fish through the weave. Her kin — and a powerful djinn — have searched the planes for her spirit for centuries.",
+    "npcs": [],
+    "notes": "",
+    "tags": []
+  },
+  {
+    "id": 23,
+    "name": "The Leap",
+    "category": "landmark",
+    "meta": "Cliff outcropping · 100-ft drop · Tradition",
+    "description": "An outcropping of rock nearly a hundred feet above the churning water below. Stone benches and markers sit in the tall grass. Traditionally, the people of Saltmarsh leap from the cliffs when a loved one drowns at sea. The jump is usually not fatal — the water is free of rocks, and it is a short swim back.",
+    "npcs": [],
+    "notes": "",
+    "tags": []
+  },
+  {
+    "id": 24,
+    "name": "Alchemist's Wagon",
+    "category": "trade",
+    "meta": "Mobile shop · Visiting merchant",
+    "description": "A traveling alchemist's wagon that passes through Saltmarsh periodically. Stocked with potions, reagents, and curiosities.",
+    "npcs": [],
+    "notes": "",
+    "tags": []
+  }
+]
