@@ -1,10 +1,50 @@
 [
-  { "id": "prologue-cirdan-finrod",    "title": "Prologue — Cirdan & Finrod",    "order": 1, "body": "" },
-  { "id": "prologue-feanor-thalion",   "title": "Prologue — Feanor & Thalion",   "order": 2, "body": "" },
-  { "id": "prologue-alanis-zaphod",    "title": "Prologue — Alanis & Zaphod",    "order": 3, "body": "" },
-  { "id": "opening-scene",             "title": "Opening Scene",                 "order": 4, "body": "" },
-  { "id": "post-battle-opening",       "title": "Post-Battle Opening",           "order": 5, "body": "" },
-  { "id": "the-road-to-saltmarsh",     "title": "The Road to Saltmarsh",         "order": 6, "body": "" },
-  { "id": "post-battle-giant-ants",    "title": "Post-Battle — Giant Ants",      "order": 7, "body": "" },
-  { "id": "arrival-at-the-wicker-goat","title": "Arrival at the Wicker Goat",    "order": 8, "body": "" }
+  {
+    "id": "prologue-cirdan-finrod",
+    "title": "Prologue — Cirdan & Finrod",
+    "order": 1,
+    "body": "The wind came first.\n\nCirdan felt it tug at the loose straps of his armor as he crossed the broken road north of Highfolk, where winter still clung stubbornly to the soil. It wasn't the bite of cold that caught his attention — it was the direction. The breeze moved upslope, against the land, carrying the scent of thawing earth and old stone.\n\nHe stopped.\n\nThat was when he saw the sigil.\n\nCarved into the half-buried standing stone beside the road was a simple mark: a spiral broken by three short lines. Not a ward. Not a warning. A note — placed where only someone who listened to the wind would think to leave it.\n\nCirdan exhaled slowly.\n\n\"About time,\" he muttered.\n\n─────\n\nFinrod Zilrich stood at the edge of the copse ahead, staff in one hand, the other resting near the hourglass at his belt. He looked thinner than Cirdan remembered, but steadier somehow — as if the world had finally taught him how much to lean without breaking. His robes were travel-worn, the blue-grey thread faded by sun and storm alike.\n\n\"You're late,\" Finrod said, voice calm, eyes on the treeline rather than on Cirdan.\n\nCirdan snorted. \"You never did understand roads.\"\n\n\"They lie,\" Finrod replied. \"The wind doesn't.\"\n\nThat earned a ghost of a smile.\n\n─────\n\nThey stood in silence for a long moment, listening — to birds testing the season, to meltwater slipping beneath ice, to the distant creak of trees waking from winter's grip.\n\n\"You shouldn't be here,\" Cirdan said at last. \"The north's stirring.\"\n\n\"That's why I'm here.\"\n\nFinrod finally turned, studying Cirdan's face like a scholar rereading a difficult passage. \"You found it.\"\n\n\"I found signs,\" Cirdan said. \"Villages emptied without blood. Soldiers who remember standing watch — then nothing. And always the same thing before it happens.\"\n\n\"Crimson light,\" Finrod murmured.\n\nCirdan nodded once.\n\n─────\n\nFinrod reached into his satchel and withdrew a wrapped bundle. When he opened it, the air stirred sharply, like a held breath released. Inside lay a fragment of crystal, no larger than a coin, its surface veined with dull red luminescence.\n\n\"I was wrong,\" Finrod said quietly. \"The Heart didn't stay whole.\"\n\nCirdan took a step back. His hand went, unthinking, to his sword. \"That piece feels wrong.\"\n\n\"It should,\" Finrod replied. \"It remembers the moment of collapse. And it's trying to finish the thought.\"\n\nThe wind gusted, scattering dead leaves across the road. Somewhere nearby, something old shifted in its sleep.\n\n\"Where's the rest?\" Cirdan asked.\n\nFinrod's jaw tightened. \"Moving. Drawn to conflict. Drawn to men who believe unity can be forced.\"\n\nCirdan's expression darkened. \"Iuz.\"\n\n\"Not just him.\"\n\n─────\n\nThey shared a look then — not of trust, but of recognition. The kind born when two people realize the worst fears they never voiced have finally begun to walk.\n\n\"I'm going after it,\" Cirdan said.\n\n\"I know.\"\n\nFinrod carefully rewrapped the shard and returned it to his satchel. \"And I'm going with you.\"\n\nCirdan turned sharply. \"No. Last time, you mapped the wind and left me to the blood.\"\n\n\"And last time,\" Finrod said evenly, \"you stood in the center of a catastrophe and called it duty.\"\n\nThe words hung there — not accusation, not apology. Just truth.\n\nAt last, Cirdan looked away. \"If this ends badly—\"\n\n\"It will,\" Finrod interrupted. \"Spring always breaks something on its way in.\"\n\n─────\n\nThey started down the road together, neither leading, neither following. Overhead, the clouds began to thin, sunlight cutting through in pale, tentative shafts.\n\nAtroa's wind shifted again — not toward the north this time, but east.\n\nFinrod frowned.\nCirdan tightened his grip on his sword.\n\nSomewhere ahead, something that should have stayed buried was remembering how to be whole.\n\n─────\n\nThe smell reached them before the town did.\n\nSaltmarsh always announced itself that way — brine and rotting kelp, fish oil soaked into wood, and the faint metallic tang of old blood that never quite washed out of a working port. The road narrowed as it bent toward the coast, marsh grass replacing trees, the ground soft and treacherous beneath their boots.\n\nCirdan slowed.\n\n\"This stretch,\" he said quietly. \"Too open.\"\n\nFinrod nodded. He had already felt it — the wind slipping low, pressed flat against the reeds instead of rolling freely off the sea. That wasn't Atroa's doing. That was fear learning how to hide.\n\n\"Someone's holding their breath,\" Finrod murmured.\n\nCirdan slid his sword halfway from its scabbard. \"Bandits?\"\n\n\"Smarter than that,\" Finrod said. \"They've learned where the wind dies.\"\n\nThe first arrow proved him right.\n\n─────\n\nIt hissed out of the reeds, low and fast. Cirdan twisted just enough that it scraped across his pauldron instead of sinking into his ribs. He moved instantly — shield up, sword free, boots digging into the mud as more shapes rose from concealment.\n\nFive of them. No — six.\n\nLeather armor patched with sailcloth. Nets instead of shields. Saltmarsh men, or close enough. The kind who knew tides better than laws.\n\n\"Coin and curios,\" one of them called, voice muffled by a wrapped scarf. \"Drop 'em and walk back the way you came.\"\n\nCirdan stepped forward instead.\n\n\"You picked the wrong road,\" he said.\n\nThe bandit laughed — once — before Finrod lifted his staff.\n\nThe wind answered."
+  },
+  {
+    "id": "prologue-feanor-thalion",
+    "title": "Prologue — Feanor & Thalion",
+    "order": 2,
+    "body": ""
+  },
+  {
+    "id": "prologue-alanis-zaphod",
+    "title": "Prologue — Alanis & Zaphod",
+    "order": 3,
+    "body": ""
+  },
+  {
+    "id": "opening-scene",
+    "title": "Opening Scene",
+    "order": 4,
+    "body": ""
+  },
+  {
+    "id": "post-battle-opening",
+    "title": "Post-Battle Opening",
+    "order": 5,
+    "body": ""
+  },
+  {
+    "id": "the-road-to-saltmarsh",
+    "title": "The Road to Saltmarsh",
+    "order": 6,
+    "body": ""
+  },
+  {
+    "id": "post-battle-giant-ants",
+    "title": "Post-Battle — Giant Ants",
+    "order": 7,
+    "body": ""
+  },
+  {
+    "id": "arrival-at-the-wicker-goat",
+    "title": "Arrival at the Wicker Goat",
+    "order": 8,
+    "body": ""
+  }
 ]
