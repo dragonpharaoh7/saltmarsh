@@ -67,21 +67,93 @@
   },
   {
     "id": "cirdan",
-    "name": "Cirdan",
+    "name": "Cirdan Anthrod",
     "player": "cirdan-f1",
-    "tagline": "",
-    "stats": {},
-    "quote": "",
-    "spheres": {},
-    "traits": [],
-    "goals": {
-      "short": [],
-      "long": []
+    "tagline": "Iron Seeker · Former Border Patrol Officer of Furyondy",
+    "stats": {
+      "alias": "Iron Seeker",
+      "origin": "Krestin's Ford, Furyondy",
+      "occupation": "Former Border Patrol Officer, Sellsword",
+      "alignment": "Neutral",
+      "driven by": "Honor, Redemption, Unfinished Duty",
+      "height": "5'6\"",
+      "weight": "175 lbs",
+      "armor": "Splint Mail",
+      "weapons": "Battleaxe, Shield"
     },
-    "adversaries": [],
-    "body": "",
-    "portrait": "",
-    "art": []
+    "quote": "I will not rest until the Heart is found. Not for glory. Not for reward. For honor.",
+    "spheres": {},
+    "traits": [
+      {
+        "name": "Unyielding",
+        "desc": "Once Cirdan commits to a course of action, he does not abandon it. Withdrawal is strategy, never surrender."
+      },
+      {
+        "name": "Quietly Devout, Deeply Doubtful",
+        "desc": "He honors Rao in word and deed, but struggles with the god's silence after Grabford."
+      },
+      {
+        "name": "Ritual of Steel",
+        "desc": "Cirdan cleans his weapons nightly, murmuring the names of fallen comrades as he does."
+      },
+      {
+        "name": "Shield of the Helpless",
+        "desc": "Politics bore him; cruelty enrages him. He will always place innocents before objectives."
+      },
+      {
+        "name": "Restless Sleeper",
+        "desc": "Sleep brings visions of crimson light, shattered earth, and a commander's final stand."
+      }
+    ],
+    "goals": {
+      "short": [
+        "Learn the true fate of Sir Brennar Tormane, his former commander.",
+        "Prevent the Heart from becoming a weapon of tyranny in the hands of Iuz, Hextor, or their servants.",
+        "Redeem his failure at Grabford by ensuring the fallen did not die for nothing."
+      ],
+      "long": [
+        "Recover the Heart of Aedrin — to return it to Furyondy, cleanse it of corruption, or destroy it if it has been twisted to evil.",
+        "Found a new martial order sworn to protect relics and symbols lost during the Greyhawk Wars."
+      ]
+    },
+    "adversaries": [
+      {
+        "name": "The Crimson Covenant",
+        "title": "War-Relic Trafficking Cult",
+        "desc": "A covert cult trafficking in war-relics and battlefield magic in Dyvers and Greyhawk City."
+      },
+      {
+        "name": "Zhaelor the Red Hand",
+        "title": "Cambion War-Priest, Agent of Iuz",
+        "desc": "Obsessed with Furyondian relics. Zhaelor is the face of Iuz's interest in the Heart — and he has been tracking Cirdan for months."
+      },
+      {
+        "name": "Hextorian Templars",
+        "title": "Militant Faction of Hextor",
+        "desc": "Believe the Heart of Aedrin should symbolize conquest rather than unity. They want it as a trophy and a weapon."
+      },
+      {
+        "name": "Relic-Brokers of Greyhawk",
+        "title": "Collectors and Merchants",
+        "desc": "See sacred artifacts only as commodities. They have no ideology — only price."
+      }
+    ],
+    "body": "Cirdan Anthrod was born in the borderlands of Furyondy, near the war-scarred frontier of the Vesve Forest, where the shadow of Iuz forever looms over the north. His father was a village smith in Krestin's Ford, his mother a healer who served the small garrison stationed there. Life on the frontier taught hard lessons early — every child learned the sound of warning horns and the sickly glow of fell magic beyond the treeline.\n\nWhen Cirdan came of age, he took up arms in service to King Belvor IV, joining the border patrols defending Furyondy's northern marches. He proved disciplined, relentless, and unyielding in battle, earning the nickname Iron Seeker for his refusal to abandon a charge once begun or a comrade once fallen.\n\nDuring the chaos of the Greyhawk Wars, Cirdan's unit was assigned a critical duty: guarding a sacred relic known as the Heart of Aedrin. The Heart was a fist-sized crystal of crimson light, said to have been blessed by Rao during Furyondy's founding — a symbol of unity, resolve, and divine favor passed from commander to commander in times of dire need.\n\nAt a brutal engagement near Grabford, Iuzite forces unleashed profane sorcery that shattered the battlefield itself. Amid fire, screams, and collapsing earth, Cirdan watched his commander and mentor, Sir Brennar Tormane, fall mortally wounded. As the ground split open, the Heart of Aedrin vanished into the chasm along with the dead. Cirdan tried to reach it, but was dragged back as the earth swallowed everything beneath a tide of shadow and flame.\n\nThe war ended, borders shifted, and Furyondy endured — but Cirdan could not lay the past to rest. Plagued by dreams of crimson light pulsing beneath blackened soil, he resigned his commission and took to the road. Some whisper that he seeks redemption. Others claim he hunts a ghost. Cirdan knows only this: the Heart of Aedrin still exists, whether buried in the blasted lands, stolen by scavengers, or claimed by the servants of Iuz.\n\nNow he wanders the Flanaess, selling his sword where necessary and his loyalty sparingly, following rumors wherever they lead — red light glimpsed in the ruins of Molag, whispered dealings in Greyhawk City, or cultists in Dyvers trading relics of war. He will find the Heart, even if it costs him his life, for within it lies the last unbroken symbol of Furyondy's honor — and his own.",
+    "portrait": "assets/cirdan-portrait.png",
+    "art": [
+      "assets/cirdan-sheet.png"
+    ],
+    "oath": [],
+    "artifact": {
+      "name": "The Heart of Aedrin",
+      "image": "assets/heart-of-aedrin.png",
+      "desc": "A fist-sized crystal of crimson light, said to have been blessed by Rao himself during the founding of Furyondy. The Heart is a symbol of unity, resolve, and divine favor — passed from commander to commander in times of great trial. At Grabford, Iuzite forces unleashed profane sorcery that shattered the battlefield. As the ground split open, the Heart vanished into the chasm along with the dead.",
+      "status": "Lost — vanished at Grabford · Rumored in Molag, Greyhawk City, Dyvers",
+      "warning": "The Heart of Aedrin still exists. Whether buried in the blasted lands, stolen by scavengers, or claimed by the servants of Iuz."
+    },
+    "treatise": null,
+    "deityCompass": null,
+    "journal": []
   },
   {
     "id": "finrod",
