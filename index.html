@@ -177,6 +177,15 @@ nav{position:sticky;top:0;z-index:100;background:rgba(12,25,32,0.94);backdrop-fi
 .oath-line{font-family:var(--display);font-size:0.82rem;letter-spacing:0.04em;color:var(--parch-mid);line-height:2.2}
 .oath-line-first{color:var(--gold-hi);font-size:0.9rem}
 
+
+.artifact-block{display:flex;gap:1.25rem;align-items:flex-start;background:rgba(138,100,200,0.06);border:1px solid rgba(138,100,200,0.22);border-radius:4px;padding:1.1rem 1.25rem;margin-top:0.25rem}
+.artifact-img{width:80px;height:80px;object-fit:cover;border-radius:3px;border:1px solid rgba(138,100,200,0.3);flex-shrink:0;cursor:pointer;transition:opacity 0.2s}
+.artifact-img:hover{opacity:0.85}
+.artifact-name{font-family:var(--display);font-size:0.82rem;color:#b898e8;letter-spacing:0.04em;margin-bottom:4px}
+.artifact-status{font-family:var(--display);font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(184,152,232,0.55);margin-bottom:6px}
+.artifact-desc{font-size:0.9rem;line-height:1.72;color:rgba(245,234,214,0.72)}
+.artifact-warning{font-size:0.85rem;font-style:italic;color:rgba(184,152,232,0.6);margin-top:6px}
+
 .pc-card{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:1.2rem;text-align:center;transition:all 0.18s}
 .pc-card.has{cursor:pointer}.pc-card.has:hover{border-color:var(--border-hi);background:var(--surface-hover)}
 .pc-card.empty{opacity:0.35}
@@ -498,7 +507,18 @@ function partyDetail(id){
       </div>
     </div>
     ${pc.body?`<div class="dsec" style="margin-top:1.5rem"><div class="lbl lbl-blue">Background</div><div class="reading-body" style="font-size:1rem;line-height:1.9">${pc.body}</div></div>`:''}
-    ${pc.treatise?`<div class="dsec" style="margin-top:2rem"><div class="lbl lbl-blue">Published Works</div><div class="treatise"><div class="treatise-title">${pc.treatise.title}</div><div class="treatise-byline">${pc.treatise.byline}</div><div class="treatise-body">${pc.treatise.excerpt}</div></div></div>`:''}
+    ${pc.artifact?`<div class="dsec" style="margin-top:1.75rem"><div class="lbl" style="font-family:var(--display);font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(138,100,200,0.7);padding-bottom:0.45rem;border-bottom:1px solid rgba(138,100,200,0.18);margin-bottom:0.8rem">Sought Artifact</div>
+      <div class="artifact-block">
+        ${pc.artifact.image?`<img src="${pc.artifact.image}" class="artifact-img" alt="${pc.artifact.name}" onclick="openLightbox('${pc.artifact.image}')">`:''}
+        <div>
+          <div class="artifact-name">${pc.artifact.name}</div>
+          ${pc.artifact.status?`<div class="artifact-status">${pc.artifact.status}</div>`:''}
+          <div class="artifact-desc">${pc.artifact.desc}</div>
+          ${pc.artifact.warning?`<div class="artifact-warning">"${pc.artifact.warning}"</div>`:''}
+        </div>
+      </div>
+    </div>`:''}
+        ${pc.treatise?`<div class="dsec" style="margin-top:2rem"><div class="lbl lbl-blue">Published Works</div><div class="treatise"><div class="treatise-title">${pc.treatise.title}</div><div class="treatise-byline">${pc.treatise.byline}</div><div class="treatise-body">${pc.treatise.excerpt}</div></div></div>`:''}
     ${pc.art&&pc.art.length?`<div class="dsec" style="margin-top:2rem"><div class="lbl lbl-gold">Character Art</div>${pc.art.map(src=>`<img src="${src}" class="char-art" alt="Character art" onclick="openLightbox('${src}')">`).join('')}</div>`:''}`;
 
   document.title=pc.name+' — '+D.campaign.name; show('p-party-detail');
