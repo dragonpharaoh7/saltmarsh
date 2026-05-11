@@ -139,20 +139,65 @@
   },
   {
     "id": "zaphod",
-    "name": "Zaphod",
+    "name": "Zaphod Beeblebrox",
     "player": "zaphod-b1",
-    "tagline": "",
-    "stats": {},
-    "quote": "",
+    "tagline": "Gnomish Professor of the Resonant Arts",
+    "stats": {
+      "race": "Gnome",
+      "class": "Bard",
+      "alignment": "Neutral",
+      "height": "3'5\"",
+      "weight": "87 lbs",
+      "college": "Grey College, Greyhawk",
+      "armor": "Padded Armor",
+      "weapon": "None (Uses Words and Music)",
+      "instrument": "Sheng",
+      "symbol": "Freedom of Thought"
+    },
+    "quote": "A song is a key. Knowledge is the door. Sing well, and all may enter.",
     "spheres": {},
-    "traits": [],
+    "traits": [
+      {
+        "name": "Brilliant, Irreverent & Verbose",
+        "desc": "Zaphod is distractingly learned and impossible to shut up. Every observation becomes a lecture, every lecture a performance."
+      },
+      {
+        "name": "Humor as Shield and Scalpel",
+        "desc": "Uses wit as both armor and weapon — a well-placed joke can defuse a crowd or gut an argument. He knows the difference."
+      },
+      {
+        "name": "Genuinely Cares",
+        "desc": "For students, common folk, and the forgotten alike. Not performative — he will go out of his way for people who remind him why truth matters."
+      },
+      {
+        "name": "Principled Fury",
+        "desc": "Hates bullies, despots, and sloppy footnotes with equal passion. The first two he fights with songs. The third he corrects in red ink."
+      }
+    ],
     "goals": {
       "short": [],
-      "long": []
+      "long": [
+        "Undermine Iuz's myth of godhood through music, satire, and counter-resonance.",
+        "Preserve forbidden histories through song before they are erased entirely.",
+        "Train a new generation of bards as scholars and truth-bearers."
+      ]
     },
-    "adversaries": [],
-    "body": "",
-    "portrait": "",
-    "art": []
+    "adversaries": [
+      {
+        "name": "Iuz the Old",
+        "title": "Demigod of Pain and Oppression",
+        "desc": "Iuz's cultists burned Grey College's music wing and issued a standing order: \"Silence the gnome.\" Zaphod responded by singing louder."
+      }
+    ],
+    "body": "Zaphod Beeblebrox was born beneath the low, root-tangled hills of the Kron Hills, where gnomes value cleverness, song, and stories that teach as much as they entertain. From an early age, Zaphod showed an uncommon talent — not merely for music, but for understanding why music works. He could explain how a marching rhythm stiffened a spine, how a minor key seeded dread, and how a well-placed pause could make a lie unravel itself.\n\nRather than becoming a simple minstrel, Zaphod pursued scholarship. He traveled to Grey College in the Free City of Greyhawk, where he studied history, rhetoric, arcane theory, and the obscure discipline he would later name Resonant Pedagogy — the use of song, poetry, and performance to transmit truth, memory, and resistance. In time, he became a professor, a rarity among bards, lecturing in packed halls while standing atop desks so all could see him gesticulate wildly with pipe, lute, and chalk.\n\nZaphod's enmity with Iuz the Old began not on a battlefield, but in an archive.\n\nWhile cataloging pre-Greyhawk Wars folk songs, Zaphod uncovered a suppressed cycle of ballads from the Howling Hills, coded with mnemonic harmonies. When performed correctly, the verses revealed firsthand accounts of Iuz's early atrocities — names of villages erased, demons bound through betrayal, and proof that Iuz's divinity was neither inevitable nor invincible. Worse still, the songs contained counter-resonances — melodic structures that weakened fear-based enchantments and disrupted certain demonic compulsions.\n\nZaphod published his findings in a controversial treatise: \"The Tyrant's Chorus: A Musical Analysis of Iuzian Fear-Myth.\"\n\nThe reaction was immediate. Cultists attempted to burn Grey College's music wing. Students vanished. A horned emissary of Iuz delivered a single message etched into a lectern: \"Silence the gnome.\" Instead, Zaphod sang louder.\n\nForced into exile, Zaphod now wanders the Flanaess, posing as a traveling lecturer, tavern performer, or eccentric storyteller. Wherever Iuz's influence spreads, Zaphod follows — teaching coded songs to rebels, embedding historical truths into drinking chants, and using satire to puncture the illusion of Iuz's omnipotence. His performances often seem comedic and chaotic, but every rhyme is deliberate, every refrain a weapon.\n\nZaphod believes tyranny survives only so long as people forget how it began. His life's work is to ensure they remember.",
+    "portrait": "assets/zaphod-portrait.png",
+    "art": [
+      "assets/zaphod-sheet.png"
+    ],
+    "treatise": {
+      "title": "The Tyrant's Chorus: A Musical Analysis of Iuzian Fear-Myth",
+      "byline": "Professor Zaphod Beeblebrox, Grey College (displaced), Chair Emeritus of Resonant Pedagogy",
+      "excerpt": "Let us begin by correcting a common and dangerous misconception: that Iuz is feared because he is powerful. The inverse is nearer the truth. Iuz is powerful because he is feared — and fear, like any poorly taught song, can be unlearned.\n\nThe priests of Iuz insist that terror is his natural emanation, as heat is to flame. This is false. Fear is composed. It has meter, repetition, and refrain. It relies upon predictable cadences: the whispered rumor, the exaggerated reprisal, the ritualized cruelty performed just loudly enough to be overheard. These are not acts of divinity. They are performances.\n\nIn my analysis of the Howling Hills ballads (Appendix III, verses 12–19), we find a recurring harmonic anomaly: a countermelody hummed beneath the work-songs of the enslaved. When sung alone, it is unremarkable. When sung together — particularly in thirds — it produces a measurable disruption in compulsion effects commonly attributed to demonic influence. The singers did not know why it worked. They only knew that overseers grew uneasy when it was sung.\n\nThis is the tyrant's great weakness: fear demands silence from its victims, but music thrives on breath.\n\nConsider the so-called \"divine wrath\" of Iuz. Note how often it arrives preceded by proclamation, sigil, or sermon. True divinity needs no herald. Iuz must announce himself because his power depends upon anticipation. Remove the audience, and the god diminishes to a bully shouting in an empty hall.\n\nI have personally demonstrated — at regrettable personal cost — that satirical verse aimed at Iuz's origin myths provokes a response disproportionate to its alleged insignificance. Why should a god fear a joke? Because humor breaks rhythm. It causes the chorus to falter.\n\nTherefore, I submit this thesis: Iuz is not sustained by worship, but by participation. Those who repeat his stories, obey his rituals, or whisper his threats are unwitting choristers in his song.\n\nTo resist him, one must not merely fight — but sing differently.\n\nTeach the children the old tunes with new words. Hide history in drinking songs. Mock the tyrant's cadence until it can no longer march. When enough voices refuse the refrain, the chorus collapses.\n\nAnd when that day comes, Iuz will learn the final lesson of all false gods:\n\nNo song survives when no one remembers how it goes.\n\n— Z. Beeblebrox, written in exile, with excessive footnotes and insufficient safety precautions"
+    }
   }
 ]
