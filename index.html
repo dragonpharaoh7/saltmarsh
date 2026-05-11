@@ -141,6 +141,42 @@ nav{position:sticky;top:0;z-index:100;background:rgba(12,25,32,0.94);backdrop-fi
 .treatise-title{font-family:var(--display);font-size:0.78rem;color:var(--gold-hi);letter-spacing:0.04em;margin-bottom:2px}
 .treatise-byline{font-size:0.8rem;color:var(--parch-dim);font-style:italic;margin-bottom:1rem;padding-bottom:0.75rem;border-bottom:1px solid rgba(196,134,10,0.12)}
 .treatise-body{font-size:0.95rem;line-height:1.85;color:rgba(245,234,214,0.78);white-space:pre-line}
+
+/* ── DEITY COMPASS ── */
+.compass-wrap{margin-bottom:2.5rem}
+.compass-header{text-align:center;margin-bottom:1.75rem;padding:1.5rem;border:1px solid rgba(196,134,10,0.15);border-radius:4px;background:rgba(196,134,10,0.03)}
+.compass-mystery{font-family:var(--display);font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(196,134,10,0.45);margin-bottom:0.75rem}
+.compass-desc{font-size:0.97rem;line-height:1.8;color:rgba(245,234,214,0.65);font-style:italic;max-width:580px;margin:0 auto}
+.compass-bars{display:flex;flex-direction:column;gap:14px;margin-bottom:2rem}
+.deity-bar{position:relative}
+.deity-bar-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:5px;gap:0.75rem}
+.deity-name{font-family:var(--display);font-size:0.75rem;letter-spacing:0.06em;color:var(--parch-mid)}
+.deity-epithet{font-size:0.75rem;color:var(--parch-dim);font-style:italic}
+.deity-domain{font-size:0.72rem;color:rgba(245,234,214,0.3);text-align:right}
+.deity-track{height:6px;background:rgba(245,234,214,0.06);border-radius:3px;overflow:hidden;position:relative}
+.deity-fill{height:100%;border-radius:3px;transition:width 1s cubic-bezier(0.4,0,0.2,1);min-width:0}
+.deity-score{font-family:var(--display);font-size:0.6rem;color:rgba(245,234,214,0.3);margin-top:3px;text-align:right}
+.deity-bar.leading .deity-name{color:var(--gold-hi)}
+.deity-bar.leading .deity-track{box-shadow:0 0 8px rgba(196,134,10,0.15)}
+
+.deity-bar.zeroed{opacity:0.35}
+.deity-bar.zeroed .deity-name{color:var(--parch-dim)}
+.deity-bar.leading .deity-fill{box-shadow:0 0 6px currentColor}
+.leading-tag{font-family:var(--display);font-size:0.52rem;letter-spacing:0.1em;text-transform:uppercase;padding:1px 7px;border-radius:2px;background:rgba(196,134,10,0.15);border:1px solid rgba(196,134,10,0.3);color:var(--gold-hi);margin-left:8px}
+.deity-desc-row{font-size:0.82rem;color:rgba(245,234,214,0.4);margin-top:4px;font-style:italic;line-height:1.5;display:none}
+.deity-bar.leading .deity-desc-row{display:block;color:rgba(245,234,214,0.55)}
+.journal-list{display:flex;flex-direction:column;gap:8px}
+.journal-entry{background:rgba(245,234,214,0.03);border:1px solid rgba(196,134,10,0.1);border-radius:3px;padding:0.75rem 1rem;display:flex;align-items:flex-start;gap:1rem}
+.journal-session{font-family:var(--display);font-size:0.6rem;letter-spacing:0.1em;color:var(--parch-dim);white-space:nowrap;padding-top:2px;min-width:70px}
+.journal-body{flex:1}
+.journal-event{font-size:0.95rem;color:rgba(245,234,214,0.85)}
+.journal-note{font-size:0.82rem;color:var(--parch-dim);font-style:italic;margin-top:3px}
+.journal-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.journal-tag{font-family:var(--display);font-size:0.5rem;letter-spacing:0.08em;text-transform:uppercase;padding:1px 6px;border-radius:2px;border:1px solid;opacity:0.7}
+.oath-block{padding:1.5rem;border:1px solid rgba(196,134,10,0.2);border-radius:4px;background:rgba(196,134,10,0.03);margin-bottom:2rem;text-align:center}
+.oath-line{font-family:var(--display);font-size:0.82rem;letter-spacing:0.04em;color:var(--parch-mid);line-height:2.2}
+.oath-line-first{color:var(--gold-hi);font-size:0.9rem}
+
 .pc-card{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:1.2rem;text-align:center;transition:all 0.18s}
 .pc-card.has{cursor:pointer}.pc-card.has:hover{border-color:var(--border-hi);background:var(--surface-hover)}
 .pc-card.empty{opacity:0.35}
@@ -413,9 +449,11 @@ function partyDetail(id){
   const el=document.getElementById('p-party-detail');
   const hasStats=pc.stats&&Object.keys(pc.stats).length>0;
   const hasTraits=pc.traits&&pc.traits.length>0;
-  const hasGoals=pc.goals&&(pc.goals.short||pc.goals.long);
+  const hasGoals=pc.goals&&(pc.goals.short&&pc.goals.short.length||pc.goals.long&&pc.goals.long.length);
   const hasAdv=pc.adversaries&&pc.adversaries.length>0;
   const hasSpheres=pc.spheres&&(pc.spheres.major||pc.spheres.minor);
+  const hasCompass=pc.deityCompass&&pc.journal;
+  const hasOath=pc.oath&&pc.oath.length;
 
   el.innerHTML=`
     <div class="detail-back"><button class="back-btn" onclick="go('party')">← Party</button></div>
@@ -427,6 +465,14 @@ function partyDetail(id){
       </div>
     </div>
     ${pc.quote?`<div class="char-quote">"${pc.quote}"</div>`:''}
+    ${hasOath?`<div class="oath-block">${pc.oath.map((l,i)=>`<div class="oath-line${i===0?' oath-line-first':''}">${l}</div>`).join('')}</div>`:''}`;
+
+  // Deity Compass — special full-width section
+  if(hasCompass){
+    el.innerHTML += renderDeityCompass(pc);
+  }
+
+  el.innerHTML += `
     <div class="char-sheet">
       <div>
         ${hasStats?`<div class="dsec"><div class="lbl lbl-gold">Character</div>
@@ -443,9 +489,10 @@ function partyDetail(id){
       <div>
         ${hasTraits?`<div class="dsec"><div class="lbl lbl-gold">Traits</div>${pc.traits.map(t=>`
           <div class="trait-item"><div class="trait-name">${t.name}</div><div class="trait-desc">${t.desc}</div></div>`).join('')}
+          ${pc.roleplay_cue?`<div style="margin-top:0.75rem;padding:0.6rem 0.9rem;background:rgba(196,134,10,0.05);border:1px solid rgba(196,134,10,0.12);border-radius:3px;font-size:0.82rem;color:rgba(245,234,214,0.55);font-style:italic"><span style="font-family:var(--display);font-size:0.58rem;letter-spacing:0.1em;color:var(--gold-dim);text-transform:uppercase;display:block;margin-bottom:4px">Roleplay Cue</span>${pc.roleplay_cue}</div>`:''}
         </div>`:''}
         ${hasGoals?`<div class="dsec"><div class="lbl lbl-gold">Goals</div>
-          ${pc.goals.short&&pc.goals.short.length?`<div style="font-family:var(--display);font-size:0.62rem;color:var(--gold-dim);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px">Short-Term</div>${pc.goals.short.map(g=>`<div class="goal-item">${g}</div>`).join('')}`:''}
+          ${pc.goals.short&&pc.goals.short.length?`<div style="font-family:var(--display);font-size:0.62rem;color:var(--gold-dim);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px">Immediate</div>${pc.goals.short.map(g=>`<div class="goal-item">${g}</div>`).join('')}`:''}
           ${pc.goals.long&&pc.goals.long.length?`<div style="font-family:var(--display);font-size:0.62rem;color:var(--gold-dim);letter-spacing:0.1em;text-transform:uppercase;margin:10px 0 6px">Long-Term</div>${pc.goals.long.map(g=>`<div class="goal-item">${g}</div>`).join('')}`:''}
         </div>`:''}
       </div>
@@ -453,7 +500,117 @@ function partyDetail(id){
     ${pc.body?`<div class="dsec" style="margin-top:1.5rem"><div class="lbl lbl-blue">Background</div><div class="reading-body" style="font-size:1rem;line-height:1.9">${pc.body}</div></div>`:''}
     ${pc.treatise?`<div class="dsec" style="margin-top:2rem"><div class="lbl lbl-blue">Published Works</div><div class="treatise"><div class="treatise-title">${pc.treatise.title}</div><div class="treatise-byline">${pc.treatise.byline}</div><div class="treatise-body">${pc.treatise.excerpt}</div></div></div>`:''}
     ${pc.art&&pc.art.length?`<div class="dsec" style="margin-top:2rem"><div class="lbl lbl-gold">Character Art</div>${pc.art.map(src=>`<img src="${src}" class="char-art" alt="Character art" onclick="openLightbox('${src}')">`).join('')}</div>`:''}`;
+
   document.title=pc.name+' — '+D.campaign.name; show('p-party-detail');
+}
+
+function renderDeityCompass(pc){
+  const compass = pc.deityCompass;
+  const journal = pc.journal || [];
+
+  // Score each deity
+  const scores = {};
+  compass.deities.forEach(d => scores[d.name] = 0);
+  journal.forEach(entry => {
+    (entry.tags || []).forEach(tag => {
+      compass.deities.forEach(d => {
+        if(d.affinities.includes(tag)) scores[d.name]++;
+      });
+    });
+  });
+
+  const totalActions = journal.reduce((s,e)=>(s+(e.tags||[]).length),0);
+  const allDeities = compass.deities;
+  const darkIds = ['Hextor','Erythnul','Nerull'];
+  const lightDeities = allDeities.filter(d=>!darkIds.includes(d.name));
+  const darkDeities = allDeities.filter(d=>darkIds.includes(d.name));
+  const darkHasPoints = darkDeities.some(d=>scores[d.name]>0);
+
+  // Sort light deities by score desc
+  const sortedLight = [...lightDeities].sort((a,b)=>scores[b.name]-scores[a.name]);
+  const maxLight = Math.max(...lightDeities.map(d=>scores[d.name]),1);
+  const maxDark  = Math.max(...darkDeities.map(d=>scores[d.name]),1);
+  const leader = sortedLight[0];
+  const leaderScore = scores[leader.name];
+
+  const alignBadge = a => {
+    const map = {
+      'Lawful Good':'#7090d8','Neutral Good':'#d8b830','True Neutral':'#90a890',
+      'Chaotic Good':'#80c060','Lawful Neutral':'#c07830',
+      'Lawful Evil':'#a03030','Chaotic Evil':'#801818','Neutral Evil':'#604060'
+    };
+    return `<span style="font-family:var(--display);font-size:0.5rem;letter-spacing:0.08em;padding:1px 6px;border-radius:2px;border:1px solid ${map[a]||'#888'};color:${map[a]||'#888'};opacity:0.7">${a}</span>`;
+  };
+
+  const renderBar = (d, maxScore) => {
+    const score = scores[d.name];
+    const pct = maxScore > 0 ? Math.round((score/maxScore)*100) : 0;
+    const isLeading = d.name === leader.name && leaderScore > 0 && !darkIds.includes(d.name);
+    return `<div class="deity-bar${isLeading?' leading':''}${score===0?' zeroed':''}">
+      <div class="deity-bar-header">
+        <span style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+          <span class="deity-name" style="${isLeading?'color:'+d.color:''}">${d.name}</span>
+          <span class="deity-epithet">${d.epithet}</span>
+          ${alignBadge(d.alignment)}
+          ${isLeading?'<span class="leading-tag">Resonating</span>':''}
+        </span>
+        <span class="deity-domain">${d.domain}</span>
+      </div>
+      <div class="deity-track">
+        <div class="deity-fill" style="width:${pct}%;background:${d.color};transition:width 1.2s cubic-bezier(0.4,0,0.2,1)"></div>
+      </div>
+      <div class="deity-score">${score===0?'—':score+' '+(score===1?'act':'acts')+' aligned'}</div>
+      ${isLeading||score>0?`<div class="deity-desc-row" style="display:block;color:rgba(245,234,214,${score>0?'0.55':'0.3'})">${d.description}</div>`:''}
+    </div>`;
+  };
+
+  return `
+    <div class="compass-wrap">
+      <div class="lbl lbl-blue" style="margin-bottom:1.25rem">The Unnamed Path</div>
+      <div class="compass-header">
+        <div class="compass-mystery">No Oath to Any God</div>
+        <p class="compass-desc">${compass.description}</p>
+      </div>
+
+      <div style="margin-bottom:0.75rem;display:flex;align-items:center;gap:0.75rem">
+        <div class="lbl lbl-gold" style="margin:0;border:none;padding:0;font-size:0.6rem">Light Resonance</div>
+        <div style="flex:1;height:1px;background:var(--border)"></div>
+      </div>
+      <div class="compass-bars" style="margin-bottom:2rem">
+        ${sortedLight.map(d=>renderBar(d, maxLight)).join('')}
+      </div>
+
+      ${darkHasPoints ? `
+      <div style="margin-bottom:0.75rem;display:flex;align-items:center;gap:0.75rem">
+        <div class="lbl" style="margin:0;border:none;padding:0;font-size:0.6rem;color:rgba(160,48,48,0.7);letter-spacing:0.15em;text-transform:uppercase">Shadow Resonance</div>
+        <div style="flex:1;height:1px;background:rgba(160,48,48,0.2)"></div>
+      </div>
+      <div class="compass-bars" style="margin-bottom:2rem">
+        ${darkDeities.filter(d=>scores[d.name]>0).map(d=>renderBar(d, maxDark)).join('')}
+      </div>` : ''}
+
+      ${totalActions===0?`<div style="text-align:center;font-size:0.85rem;font-style:italic;color:rgba(245,234,214,0.3);padding:1rem 0 2rem">No actions logged yet. The compass waits.</div>`:''}
+
+      <div class="dsec">
+        <div class="lbl lbl-gold">Oath Journal</div>
+        <div class="journal-list">
+          ${journal.length===0?`<div class="empty-state" style="padding:1rem 0">No entries yet.</div>`:''}
+          ${journal.map(entry=>`
+            <div class="journal-entry">
+              <span class="journal-session">${entry.session}</span>
+              <div class="journal-body">
+                <div class="journal-event">${entry.event}</div>
+                ${entry.note?`<div class="journal-note">${entry.note}</div>`:''}
+                ${entry.tags&&entry.tags.length?`<div class="journal-tags">${entry.tags.map(t=>{
+                  const deity = compass.deities.find(d=>d.affinities.includes(t));
+                  const col = deity?deity.color:'rgba(245,234,214,0.25)';
+                  return `<span class="journal-tag" style="color:${col};border-color:${col}">${t}</span>`;
+                }).join('')}</div>`:''}
+              </div>
+            </div>`).join('')}
+        </div>
+      </div>
+    </div>`;
 }
 
 /* ══ NOTES PARSER ══ */
