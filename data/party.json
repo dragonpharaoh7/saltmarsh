@@ -59,7 +59,11 @@
         "desc": "A devout but inflexible priest who believes Brandobaris's faith undermines lawful trade. She is actively hunting 'luck-cults' under the authority of mercantile houses."
       }
     ],
-    "body": "I was born in the alleys where coin changes hands faster than names — near the docks of Dyvers, where merchants shout louder than priests and fortune favors the bold. My mother said I learned to walk by chasing dropped copper, and it may be true; the first prayer I ever whispered was not for mercy, but for luck.\n\nBrandobaris heard me.\n\nThe Master of Stealth and Adventure does not call his faithful with thunder or visions. He nudges. A loose lock. A guard who looks the other way. A purse just heavy enough to matter. I learned early that risk is a form of devotion, and that cleverness is its own sacrament.\n\nI was taken in by the Coinspinners, a loose fellowship of halflings and humans who honored Brandobaris not with temples, but with stories and shared spoils. We gathered in back rooms, cellars, and abandoned counting houses, where dice clattered like holy relics and every successful caper ended with laughter and offerings left in unlikely places. It was there I learned the twin paths of my faith: take what fate offers, and leave no trail but a grin.\n\nYet I am not merely a thief with a holy symbol tucked under my cloak. Brandobaris teaches that luck must flow, not stagnate. I've returned stolen gold to those ruined by chance, slipped keys to prisoners the law forgot, and turned the gears of fortune just enough to humble the powerful. A lock picked for greed dulls the blessing; a lock picked for balance sharpens it.\n\nMy talents drew attention — both welcome and dangerous. Agents of the Guild of Thieves of Greyhawk saw potential. So did a traveling priest of Olidammara, who laughed at my prayers and called Brandobaris \"a sharper blade.\" I took that as a compliment and a warning.\n\nNow I travel the Flanaess, drawn to ruins, secret roads, and half-forgotten vaults where chance still sleeps. I've crossed paths with smugglers along the Selintan, slipped past Iuz's patrols where even luck fears to tread, and tested my faith against traps laid by long-dead wizards who trusted steel more than fortune.\n\nI carry Brandobaris's holy coin close to my heart, worn smooth from a thousand flips. Heads, I press on. Tails, I press on smarter.\n\nBecause luck is not blind.\n\nIt watches those bold enough to move.\n\nAnd I never stand still."
+    "body": "I was born in the alleys where coin changes hands faster than names — near the docks of Dyvers, where merchants shout louder than priests and fortune favors the bold. My mother said I learned to walk by chasing dropped copper, and it may be true; the first prayer I ever whispered was not for mercy, but for luck.\n\nBrandobaris heard me.\n\nThe Master of Stealth and Adventure does not call his faithful with thunder or visions. He nudges. A loose lock. A guard who looks the other way. A purse just heavy enough to matter. I learned early that risk is a form of devotion, and that cleverness is its own sacrament.\n\nI was taken in by the Coinspinners, a loose fellowship of halflings and humans who honored Brandobaris not with temples, but with stories and shared spoils. We gathered in back rooms, cellars, and abandoned counting houses, where dice clattered like holy relics and every successful caper ended with laughter and offerings left in unlikely places. It was there I learned the twin paths of my faith: take what fate offers, and leave no trail but a grin.\n\nYet I am not merely a thief with a holy symbol tucked under my cloak. Brandobaris teaches that luck must flow, not stagnate. I've returned stolen gold to those ruined by chance, slipped keys to prisoners the law forgot, and turned the gears of fortune just enough to humble the powerful. A lock picked for greed dulls the blessing; a lock picked for balance sharpens it.\n\nMy talents drew attention — both welcome and dangerous. Agents of the Guild of Thieves of Greyhawk saw potential. So did a traveling priest of Olidammara, who laughed at my prayers and called Brandobaris \"a sharper blade.\" I took that as a compliment and a warning.\n\nNow I travel the Flanaess, drawn to ruins, secret roads, and half-forgotten vaults where chance still sleeps. I've crossed paths with smugglers along the Selintan, slipped past Iuz's patrols where even luck fears to tread, and tested my faith against traps laid by long-dead wizards who trusted steel more than fortune.\n\nI carry Brandobaris's holy coin close to my heart, worn smooth from a thousand flips. Heads, I press on. Tails, I press on smarter.\n\nBecause luck is not blind.\n\nIt watches those bold enough to move.\n\nAnd I never stand still.",
+    "portrait": "assets/alanis-portrait.png",
+    "art": [
+      "assets/alanis-sheet.png"
+    ]
   },
   {
     "id": "cirdan",
@@ -75,7 +79,9 @@
       "long": []
     },
     "adversaries": [],
-    "body": ""
+    "body": "",
+    "portrait": "",
+    "art": []
   },
   {
     "id": "finrod",
@@ -91,7 +97,9 @@
       "long": []
     },
     "adversaries": [],
-    "body": ""
+    "body": "",
+    "portrait": "",
+    "art": []
   },
   {
     "id": "feanor",
@@ -107,7 +115,9 @@
       "long": []
     },
     "adversaries": [],
-    "body": ""
+    "body": "",
+    "portrait": "",
+    "art": []
   },
   {
     "id": "thalion",
@@ -123,7 +133,9 @@
       "long": []
     },
     "adversaries": [],
-    "body": ""
+    "body": "",
+    "portrait": "",
+    "art": []
   },
   {
     "id": "zaphod",
@@ -139,6 +151,8 @@
       "long": []
     },
     "adversaries": [],
-    "body": ""
+    "body": "",
+    "portrait": "",
+    "art": []
   }
 ]
